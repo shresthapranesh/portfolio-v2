@@ -1,0 +1,74 @@
+import Navbar from "./Navbar";
+import Head from "next/head";
+import "../public/css/styles.css";
+
+const Layout = (props) => (
+  <React.Fragment>
+    <Head>
+      <title>Pranesh Shrestha</title>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Rufina&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+        rel="stylesheet"
+      />
+      <script async type="text/javascript" src="./js/scripts.js"></script>
+      <script async type="text/javascript" src="./js/helper.js"></script>
+    </Head>
+
+    <Navbar />
+    <div>{props.children}</div>
+
+    <footer>
+      <div className="social">
+        <ul className="social-list">
+          <li>
+            <a href="https://www.github.com/shresthapranesh">
+              <img src="https://img.icons8.com/color/32/000000/github--v1.png" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/praneshshrestha">
+              <img src="https://img.icons8.com/color/32/000000/linkedin.png" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com/shresthapranesh">
+              <img src="https://img.icons8.com/color/32/000000/twitter-squared.png" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/pranesh.shrestha">
+              <img src="https://img.icons8.com/color/32/000000/facebook-new.png" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/shresthapranesh">
+              <img src="https://img.icons8.com/color/32/000000/instagram-new.png" />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div className="copy">
+        <p>Created By Pranesh Shrestha</p>
+        <p>&copy; All Rights Reserved</p>
+      </div>
+    </footer>
+  </React.Fragment>
+);
+
+export default Layout;
