@@ -167,9 +167,9 @@ nav a:hover {
 }
 
 .introduction {
-  background-color: #105c53;
-  backdrop-filter: blur(10px);
+  background-color: rgb(13, 145, 134);
   padding: 10vh 0;
+  margin: auto 5vw;
   font-family: "Oswald", sans-serif;
 }
 
@@ -210,7 +210,7 @@ nav a:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 30%;
-  background-color: rgb(44, 160, 141);
+  background-color: rgb(13, 145, 134);
   font-size: medium;
   font-family: "Oswald", sans-serif;
 }
@@ -259,7 +259,7 @@ nav a:hover {
 }
 
 .ProjectList {
-  background-color: #105c53;
+  background-color: rgb(13, 145, 134);
   backdrop-filter: blur(10px);
   display: flex;
   flex-flow: row nowrap;
