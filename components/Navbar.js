@@ -17,13 +17,11 @@ const Navbar = () => {
   return (
     <div className="navigation">
       <div className="nav-content">
-        <h1 className="myName">
-          <Link href="/">
-            <a>
-              <span>Pranesh Shrestha</span>
-            </a>
-          </Link>
-        </h1>
+        <Link href="/">
+          <a className="myName">
+            <span>Pranesh Shrestha</span>
+          </a>
+        </Link>
 
         <nav>
           <Link href="/">
@@ -45,6 +43,11 @@ const Navbar = () => {
             <a className={router.pathname == "/contact" ? "active" : ""}>
               {" "}
               Contact{" "}
+            </a>
+          </Link>
+          <Link href="/resume">
+            <a className={router.pathname == "/resume" ? "active" : ""}>
+              Resume
             </a>
           </Link>
         </nav>

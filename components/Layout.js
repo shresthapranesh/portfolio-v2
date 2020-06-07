@@ -8,23 +8,6 @@ const Layout = (props) => (
       <title>Pranesh Shrestha</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Rufina&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
-        rel="stylesheet"
-      />
       <script async type="text/javascript" src="./js/scripts.js"></script>
       <script async type="text/javascript" src="./js/helper.js"></script>
     </Head>

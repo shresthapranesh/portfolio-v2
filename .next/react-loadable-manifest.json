@@ -1,10 +1,10 @@
 {
-  "null": [
+  "./dev/noop": [
     {
-      "id": "Vdsi",
-      "name": "./node_modules/pdfjs-dist/build/pdf.worker.js",
-      "file": "static/chunks/pdfjsWorker.dcea91fb98a1751a552e.js",
-      "publicPath": "static/chunks/pdfjsWorker.dcea91fb98a1751a552e.js"
+      "id": "./node_modules/next/dist/client/dev/noop.js",
+      "name": "./node_modules/next/dist/client/dev/noop.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
     }
   ]
 }

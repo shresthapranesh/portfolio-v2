@@ -64,7 +64,7 @@ const Project3 = () => (
       <ul>
         <li>
           Analyzed static image using Bradley's Adaptive Thresholding algorithm
-          to detect worm and create dataset to train the classNameifier model
+          to detect worm and create dataset to train the classifier model
         </li>
         <li>
           Trained a classNameifier model using the custom made dataset with
