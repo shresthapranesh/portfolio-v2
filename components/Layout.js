@@ -8,6 +8,7 @@ const Layout = (props) => (
       <title>Pranesh Shrestha</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"></link>
       <script async type="text/javascript" src="./js/scripts.js"></script>
       <script async type="text/javascript" src="./js/helper.js"></script>
     </Head>
@@ -39,7 +40,7 @@ const Layout = (props) => (
             </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/shresthapranesh">
+            <a href="https://www.instagram.com/praneshshrestha13">
               <img src="https://img.icons8.com/color/32/000000/instagram-new.png" />
             </a>
           </li>

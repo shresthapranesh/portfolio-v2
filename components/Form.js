@@ -5,7 +5,7 @@ const AfterSubmit = () => (
   <div className="contactform" id="aftersubmit">
     <div className="title">
       <span className="topic3">
-        Thanks for Submitting. <br /> I will get in touch.
+        Thanks for getting in touch.
       </span>
     </div>
   </div>
@@ -37,15 +37,6 @@ class Form extends Component {
       lastname: this.state.lastname,
       text: this.state.message,
     };
-    // sgMail.send(msg).then(
-    //   () => {},
-    //   (error) => {
-    //     console.log(error);
-    //     if (error.response) {
-    //       console.error(error.response.body);
-    //     }
-    //   }
-    // );
     event.preventDefault();
   };
 

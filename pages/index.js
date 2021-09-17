@@ -5,11 +5,10 @@ import { Document, Page } from "react-pdf";
 const MyImage = () => {
   return (
     <img
-      src="/images/a.jpg"
+      src="/images/2.jpg"
       alt="mypic"
       height="auto"
-      width="100px"
-      style={{ borderRadius: "50%" }}
+      width="500px"
     />
   );
 };
@@ -23,8 +22,10 @@ class Index extends Component {
     return (
       <Layout>
         <div className="intro">
+          <div>
+          <MyImage />
+          </div>
           <div className="introduction">
-            <MyImage className="myImage" />
             <p>
               Hello, there <br />
               <span style={{ fontSize: "large" }}> I am </span>

@@ -1,1 +1,4 @@
 runtime: nodejs12
+handlers:
+- url: /.well-known/acme-challenge
+  static_dir: acme-challenge
