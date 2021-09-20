@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../public/css/styles.css";
 
 const AfterSubmit = () => (
   <div className="contactform" id="aftersubmit">

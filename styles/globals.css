@@ -1,3 +1,7 @@
+@import "~normalize.css";
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+
 html,
 body {
   scroll-behavior: smooth;
@@ -7,19 +11,10 @@ body {
   padding: 0px;
   overflow-x: hidden;
   overflow-y: hidden;
-  background-color: #1e2129;
+  background-color: white;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Roboto', sans-serif;
-}
-
-@font-face {
-  font-family: "Gotham light";
-  src: url("/files/font/GOTHAM-LIGHT.TTF");
-}
-
-@font-face {
-  font-family: "Gotham bold";
-  src: url("/files/font/GOTHAM-BOLD.OTF");
+  color: black;
+  font-family: 'Roboto', 'San Serif';
 }
 
 ::-webkit-scrollbar {
@@ -45,83 +40,14 @@ body {
     box-sizing: border-box;
 } */
 
-.ham {
-  display: none;
-  cursor: pointer;
-}
 
-.bar1,
-.bar2,
-.bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: white;
-  margin: 6px 0;
-  transition: 0.4s;
-}
-
-/* Rotate first bar */
-.change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-  transform: rotate(-45deg) translate(-9px, 6px);
-}
-
-/* Fade out the second bar */
-.change .bar2 {
-  opacity: 0;
-}
-
-/* Rotate last bar */
-.change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-8px, -8px);
-  transform: rotate(45deg) translate(-8px, -8px);
-}
-
-.navigation {
-  position: fixed;
-  z-index: 9999;
-  padding: 1vh;
-  width: 100%;
-  top: 0;
-}
-
-.nav-content {
-  display: flex;
-  flex-flow: row nowrap;
-}
-
-.nav-content nav {
-  margin-left: auto;
-  margin-right: 1vw;
-  display: flex;
-  flex-flow: row nowrap;
-  font-family: 'Roboto', sans-serif;
-  font-size: medium;
-  color: white;
-  text-decoration: none;
-}
 .myName a,
 .myName {
-  color: white;
-  font-family: 'Roboto', sans-serif;
+  
   font-size: larger;
   padding: inherit;
   text-decoration: none;
   padding: 1vh 2vw;
-}
-nav a:hover,
-.active {
-  border-bottom: 4px solid white;
-}
-
-.navigation nav a {
-  color: white;
-  display: inline;
-  padding: 1vh 2vw;
-  margin: 0 2vw;
-  text-decoration: none;
-  overflow: visible;
-  transition: width 0.35s ease-in-out;
 }
 
 .social {
@@ -165,24 +91,6 @@ nav a:hover,
   fill: cadetblue;
 }
 
-.intro {
-  left: 50%;
-  text-align: center;
-  font-size: large;
-  color: white;
-  padding: 20vh 0;
-  margin: 0 20vw;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-}
-
-.introduction {
-  /* background-color: teal; */
-  padding: 10vh 0;
-  margin: auto 5vw;
-  font-family: 'Roboto', sans-serif;
-}
 
 .resume {
   display: flex;
@@ -190,33 +98,7 @@ nav a:hover,
   margin-top: 10vh;
 }
 
-.listA {
-  color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  width: 30%;
-  background-color: teal;
-  font-size: medium;
-  font-family: 'Roboto', sans-serif;
-}
 
-.listA:hover {
-  transform: translateY(-5px);
-}
-
-.listA span {
-  font-size: x-large;
-}
-
-.listA:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.skill-container {
-  display: flex;
-  flex-flow: row;
-  margin: 20vh 3vw;
-}
 
 .title {
   display: flex;
@@ -226,8 +108,6 @@ nav a:hover,
 
 .topic1 {
   padding: 10px;
-  color: white;
-  font-family: "Gotham light";
   font-size: xx-large;
 }
 
@@ -242,21 +122,18 @@ nav a:hover,
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   padding: 10px;
-  color: white;
-  font-family: "Gotham light";
   font-size: xx-large;
 }
 
 .ProjectList {
-  background-color: teal;
+  background-color: white;
   backdrop-filter: blur(10px);
   display: flex;
   flex-flow: row nowrap;
   padding: 1vh 1vw;
-  margin: 20vh 20vw;
+  margin: 10vh 10vw;
   font-size: large;
-  font-family: 'Roboto', sans-serif;
-  color: white;
+  
 }
 
 .project1,
@@ -288,7 +165,6 @@ button {
   border-radius: 0px;
   text-decoration-skip-ink: auto;
   position: relative;
-  cursor: pointer;
   display: flex;
   align-items: center;
   width: 100%;
@@ -296,9 +172,7 @@ button {
   height: 4em;
   text-align: left;
   white-space: nowrap;
-  font-family: "Gotham bold";
   font-size: 15px;
-  color: white;
   text-decoration: none;
   padding: 0px 20px 2px;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
@@ -308,6 +182,7 @@ button {
 
 .btnactive {
   background-color: #333;
+  color: white;
 }
 
 button:hover {
@@ -323,14 +198,14 @@ button:hover {
 }
 
 .contactform {
-  margin: 15vh 0 10vh 0;
+  margin: 5vh 0 5vh 0;
 }
 .form-style-1 {
   margin: 10px auto;
   max-width: 400px;
   padding: 20px 12px 10px 20px;
-  font-family: "Gotham light";
-  color: white;
+
+  
 }
 .form-style-1 li {
   padding: 0;
@@ -414,8 +289,8 @@ select {
 
 .topic3 {
   padding: 10px;
-  color: white;
-  font-family: "Gotham light";
+  
+
   font-size: xx-large;
 }
 
@@ -429,9 +304,9 @@ footer {
   padding: 3px 0;
 }
 footer .copy {
-  font-family: "Gotham light";
+
   font-size: small;
-  color: white;
+  
   margin-left: auto;
   padding: 0 2vw;
 }
@@ -471,8 +346,8 @@ footer p {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    color: white;
-    font-family: "Gotham light";
+    
+  
   }
   .nav-content nav {
     display: none;

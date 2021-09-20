@@ -1,6 +1,6 @@
-import Navbar from "./Navbar";
+import Navigationbar from "./Navbar";
 import Head from "next/head";
-import "../public/css/styles.css";
+import React from 'react';
 
 const Layout = (props) => (
   <React.Fragment>
@@ -13,10 +13,10 @@ const Layout = (props) => (
       <script async type="text/javascript" src="./js/helper.js"></script>
     </Head>
 
-    <Navbar />
+    <Navigationbar />
     <div>{props.children}</div>
 
-    <footer>
+    <footer id="footer">
       <div className="social">
         <ul className="social-list">
           <li>

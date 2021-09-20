@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import styles from "../styles/skills.module.css";
 
 const Programming = () => (
-  <div className="listA">
-    <div className="container">
+  <div className={styles.listA}>
+    <div>
       <ul>
         <span>Programming</span>
         <li>Python</li>
@@ -18,8 +19,8 @@ const Programming = () => (
 );
 
 const MLFramework = () => (
-  <div className="listA">
-    <div className="container">
+  <div className={styles.listA}>
+    <div>
       <ul>
         <span> ML Framework</span>
         <li>Tensorflow</li>
@@ -33,8 +34,8 @@ const MLFramework = () => (
 );
 
 const WebFramework = () => (
-  <div className="listA">
-    <div className="container">
+  <div className={styles.listA}>
+    <div>
       <ul>
         <span> Web Framework</span>
         <li>ExpressJs</li>
@@ -48,8 +49,8 @@ const WebFramework = () => (
 );
 
 const TestFramework = () => (
-  <div className="listA">
-    <div className="container">
+  <div className={styles.listA}>
+    <div>
       <ul>
         <span> Test Framework</span>
         <li>Jest</li>
@@ -61,8 +62,8 @@ const TestFramework = () => (
 );
 
 const Participation = () => (
-  <div className="listA">
-    <div className="container">
+  <div className={styles.listA}>
+    <div>
       <ul>
         <span>Participation</span>
         <li> IEEE</li>
@@ -76,7 +77,7 @@ const Participation = () => (
 );
 
 const List = () => (
-  <div className="skill-container">
+  <div className={styles.container}>
     <Programming />
     <MLFramework />
     <WebFramework />

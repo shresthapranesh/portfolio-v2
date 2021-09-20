@@ -1,0 +1,17 @@
+
+.intro {
+    left: 50%;
+    text-align: center;
+    font-size: large;
+    
+    padding: 10vh 0;
+    margin: 0 10vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+  }
+  
+  .introduction {
+    padding: 10vh 0;
+    margin: auto 5vw;
+  }
