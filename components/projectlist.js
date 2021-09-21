@@ -1,4 +1,9 @@
-import React, { Component } from "react";
+import * as React from "react";
+import {
+  Tab, Tabs
+} from "@blueprintjs/core"
+import style from "../styles/projects.module.css"
+
 const Project1 = () => (
   <div className="project1" id="description">
     <h4>
@@ -134,73 +139,23 @@ const Project5 = () => (
   </div>
 );
 
-class ProjectList extends Component {
-  state = {
-    project: {
-      1: <Project1 />,
-      2: <Project2 />,
-      3: <Project3 />,
-      4: <Project4 />,
-      5: <Project5 />,
-    },
-    no: "1",
-  };
-
-  renderProject = () => {
-    return this.state.project[this.state.no];
-  };
-
-  handleClick = (a) => this.setState({ no: a });
-
-  render() {
-    return (
-      <div className="ProjectList">
-        <ul className="listb">
-          <li>
-            <button
-              className={this.state.no == "1" ? "btnactive" : ""}
-              onClick={() => this.handleClick("1")}
-            >
-              <span> Music Genre Predictor </span>
-            </button>
-          </li>
-          <li>
-            <button
-              className={this.state.no == "2" ? "btnactive" : ""}
-              onClick={() => this.handleClick("2")}
-            >
-              <span> Point of Sale System </span>
-            </button>
-          </li>
-          <li>
-            <button
-              className={this.state.no == "3" ? "btnactive" : ""}
-              onClick={() => this.handleClick("3")}
-            >
-              <span> Worm Tracker </span>
-            </button>
-          </li>
-          <li>
-            <button
-              className={this.state.no == "4" ? "btnactive" : ""}
-              onClick={() => this.handleClick("4")}
-            >
-              <span> Phasor Measurement Unit </span>
-            </button>
-          </li>
-          <li>
-            <button
-              className={this.state.no == "5" ? "btnactive" : ""}
-              onClick={() => this.handleClick("5")}
-            >
-              <span>Autonomous Vehicle </span>
-            </button>
-          </li>
-        </ul>
-        {this.renderProject()}
-      </div>
-    );
-  }
+const ProjectList = () => {
+  return (
+    <div className={style.ProjectList}>
+      <Tabs
+        key={"vertical"}
+        vertical={true}
+        className={style.listb}
+      >
+        <Tab id="p1" className={style.tab} title="Project1" panel={<Project1/>}/>
+        <Tab id="p2" className={style.tab} title="Project2" panel={<Project2/>}/>
+        <Tab id="p3" className={style.tab} title="Project3" panel={<Project3/>}/>
+        <Tab id="p4" className={style.tab} title="Project4" panel={<Project4/>}/>
+        <Tab id="p5" className={style.tab} title="Project5" panel={<Project5/>}/>
+        <Tabs.Expander />
+      </Tabs>
+    </div>
+  );
 }
 
 export default ProjectList;

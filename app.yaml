@@ -1,4 +1,7 @@
-runtime: nodejs12
+env: standard
+runtime: nodejs14
+service: default
 handlers:
-- url: /.well-known/acme-challenge
-  static_dir: acme-challenge
+- url: /.*
+  secure: always
+  script: auto

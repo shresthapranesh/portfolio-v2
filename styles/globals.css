@@ -40,6 +40,13 @@ body {
     box-sizing: border-box;
 } */
 
+.bp3-tab {
+  height: 4em;
+  font-size: large;
+  white-space: nowrap;
+  text-align: center;
+}
+
 
 .myName a,
 .myName {
@@ -125,36 +132,7 @@ body {
   font-size: xx-large;
 }
 
-.ProjectList {
-  background-color: white;
-  backdrop-filter: blur(10px);
-  display: flex;
-  flex-flow: row nowrap;
-  padding: 1vh 1vw;
-  margin: 10vh 10vw;
-  font-size: large;
-  
-}
 
-.project1,
-.project2,
-.project3,
-.project4,
-.project5 {
-  transition: all 2s ease;
-}
-
-.listb {
-  display: block;
-  position: relative;
-  width: max-content;
-  z-index: 3;
-  padding: 0px;
-  margin: auto 0;
-  padding-right: 3vw;
-  list-style: none;
-  padding-inline-start: 20px;
-}
 
 button {
   cursor: pointer;
