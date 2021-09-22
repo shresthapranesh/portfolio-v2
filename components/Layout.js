@@ -9,8 +9,6 @@ const Layout = (props) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"></link>
-      <script async type="text/javascript" src="./js/scripts.js"></script>
-      <script async type="text/javascript" src="./js/helper.js"></script>
     </Head>
 
     <Navigationbar />

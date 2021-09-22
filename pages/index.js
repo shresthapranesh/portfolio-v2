@@ -2,7 +2,7 @@ import React, { Component, useEffect } from "react";
 import {useRouter} from "next/router";
 import Layout from "../components/Layout";
 import {
-  Blockquote
+  Blockquote, Button
 } from "@blueprintjs/core"
 import styles from "../styles/index.module.css";
 
@@ -22,9 +22,17 @@ const Index = () => {
   useEffect(() => {
     router.prefetch("/contacts")
     router.prefetch("/skills")
-    router.prefetch("/resume")
     router.prefetch("/projects")
   })
+
+  const handleClick = async () => {
+    await fetch('/api/getResume',{
+      method: "GET",
+    }).then(response => response.blob()).then( blob => {
+      const url = URL.createObjectURL(blob)
+      window.open(url)
+    }).catch((e) => console.log(e))
+  }
 
   return (
     <Layout>
@@ -43,6 +51,7 @@ const Index = () => {
               I am a full time Software Engineer.
               <br /> Welcome to my Portfolio Website.
             </p>
+            <Button intent="primary" icon="document" text="Resume" onClick={handleClick} />
           </Blockquote>
         </div>
       </div>

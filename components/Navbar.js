@@ -22,7 +22,6 @@ export default function Navigationbar() {
         <NavbarGroup align={Alignment.RIGHT}>  
             <Button className={Classes.MINIMAL} icon="home" text="Home" onClick={() => router.push("/")} />
             <Button className={Classes.MINIMAL} icon="chat" text="Contact" onClick={() => router.push("/contact")} />
-            <Button className={Classes.MINIMAL} icon="document" text="Resume" onClick={() => router.push("/resume")} />
             <Button className={Classes.MINIMAL} icon="build" text="Skills" onClick={() => router.push("/skills")} />
             <Button className={Classes.MINIMAL} icon="projects" text="Projects" onClick={() => router.push("/projects")} />
         </NavbarGroup>
