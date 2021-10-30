@@ -1,5 +1,6 @@
 import React, { Component, useEffect } from "react";
 import {useRouter} from "next/router";
+import Image from "next/image"
 import Layout from "../components/Layout";
 import {
   Blockquote, Button
@@ -8,11 +9,11 @@ import styles from "../styles/index.module.css";
 
 const MyImage = () => {
   return (
-    <img
+    <Image
       src="/images/2.jpg"
       alt="mypic"
-      height="500px"
-      width="auto"
+      height={500}
+      width={665}
     />
   );
 };
@@ -36,16 +37,16 @@ const Index = () => {
 
   return (
     <Layout>
-      <div className={styles.intro}>
+      <div className={styles.container}>
         <div>
         <MyImage />
         </div>
-        <div className={styles.introduction}>
+        <div className={styles.inner_container}>
           <Blockquote>
             <p>
               Hello, there <br />
-              <span style={{ fontSize: "large" }}> I am </span>
-              <span style={{ fontSize: "40px" }}> Pranesh Shrestha. </span>
+              I am
+              <span className={styles.headingXl}> Pranesh Shrestha. </span>
             </p>
             <p>
               I am a full time Software Engineer.

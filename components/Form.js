@@ -1,121 +1,81 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
+import {
+  FormGroup, InputGroup, Label, HTMLSelect, Button, Toast, Toaster, Position, Intent, TextArea, Classes
+} from "@blueprintjs/core"
+import styles from "../styles/form.module.css"
 
-const AfterSubmit = () => (
-  <div className="contactform" id="aftersubmit">
-    <div className="title">
-      <span className="topic3">
-        Thanks for getting in touch.
-      </span>
-    </div>
-  </div>
-);
+// const errorToast = Toaster.create({
+//   className: "recipe-toaster",
+//   position: Position.TOP,
+// })
 
-class Form extends Component {
-  state = {
-    firstname: "",
-    lastname: "",
-    email: "",
-    subject: "Advertise",
-    message: "",
-    submitted: false,
-  };
+const flex = {
+  display: "flex",
+  flexDirection: "row",
+}
 
-  handleChange = (event) => {
-    let tempvar = event.target.name;
-    let tempvalue = event.target.value;
-    this.setState({ [tempvar]: tempvalue });
-  };
 
-  handleSubmit = (event) => {
-    this.setState({ submitted: true });
-    const msg = {
-      to: "pranesh.shrestha@ttu.edu",
-      from: "portfolio@praneshshrestha.com",
-      subject: this.state.subject,
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      text: this.state.message,
-    };
-    event.preventDefault();
-  };
+const Form = () => {
+  const [name, setName] = useState('');
+  const [subject, setSubject] = useState('General Question');
+  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState('');
 
-  render() {
-    const isSubmitted = this.state.submitted;
-    let elements;
-    if (!isSubmitted) {
-      elements = (
-        <form onSubmit={this.handleSubmit} className="contactform">
-          <h1 className="form-style-1"> Contact Form </h1>
-          <ul className="form-style-1">
-            <li>
-              <label>
-                Full Name <span className="required">*</span>
-              </label>
-              <input
-                type="text"
-                name="firstname"
-                className="field-divided"
-                placeholder="First"
-                onChange={this.handleChange}
-                required
-              />{" "}
-              <input
-                type="text"
-                name="lastname"
-                className="field-divided"
-                placeholder="Last"
-                onChange={this.handleChange}
-                required
-              />
-            </li>
-            <li>
-              <label>
-                Email <span className="required">*</span>
-              </label>
-              <input
-                type="email"
-                name="email"
-                className="field-long"
-                onChange={this.handleChange}
-                required
-              />
-            </li>
-            <li>
-              <label>Subject</label>
-              <select
-                name="subject"
-                className="field-select"
-                onChange={this.handleChange}
-              >
-                <option value="Advertise">Advertise</option>
-                <option value="Partnership">Partnership</option>
-                <option value="General Question">General</option>
-              </select>
-            </li>
-            <li>
-              <label>
-                Your Message <span className="required">*</span>
-              </label>
-              <textarea
-                name="message"
-                id="field5"
-                className="field-long field-textarea"
-                onChange={this.handleChange}
-                required
-              ></textarea>
-            </li>
-            <li>
-              <input type="submit" value="Submit" />
-            </li>
-          </ul>
-        </form>
-      );
-    } else {
-      elements = <AfterSubmit />;
+  const options = [
+    {label: "Business", value: "Business"},
+    {label: "General Question", value: "General Question"}
+  ];
+
+  
+
+  const handleClick = () => {
+    let success = true
+    fetch('/api/contactForm',{
+      method: 'POST',
+      body: {
+        name, subject, message, email
+      }
+    }).then(response => {
+      if (response.status != 200){
+        success = false
+        console.log(success)
+        // errorToast.show({intent: Intent.DANGER,message: (<> Failed </>)})
+      }
+    }).catch(e => console.log(e))
+    setName('')
+    setSubject('General Question')
+    setMessage('')
+    setEmail('')
+    if (success != false){
+      // return errorToast.show({intent: Intent.PRIMARY,message: (<> Pass </>)})
+  
     }
-
-    return <div>{elements}</div>;
   }
+
+  return (
+    <div className={styles.container}>
+      <FormGroup className={styles.form_field}>
+        <div style={flex}>
+          <Label style={{width: "50%"}}> Full Name
+            <input style={{width:"100%"}}  className={Classes.INPUT} onChange={(e) => setName(e.target.value)} placeholder="Full name" required/>
+          </Label>
+          <Label style={{paddingLeft: "1vw", width:"50%"}}> Email
+            <input className={Classes.INPUT} style={{width:"100%"}} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required/>
+          </Label>
+        </div>
+        
+        <Label> Subject
+          <HTMLSelect onChange={(e) => setSubject(e.target.value)} options={options} />
+        </Label>
+    
+        <Label> Message
+          <TextArea growVertically={true} fill={true} large={true} intent={Intent.PRIMARY} onChange={(e) => setMessage(e.target.value)} required/>
+        </Label>
+        <Button  intent="primary" role="submit" text="Submit" onClick={handleClick} />
+      </FormGroup>
+    </div>
+  );
+
 }
 
 export default Form;

@@ -7,27 +7,32 @@ import style from "../styles/projects.module.css"
 const Project1 = () => (
   <div className="project1" id="description">
     <h4>
-      Project Member <span> &nbsp;@&nbsp;</span> Computer Engineering Project
+      Project Engineer <span> &nbsp;@&nbsp;</span> Holland Quest
       Lab
     </h4>
-    <h5> January 2020 - May 2020 </h5>
+    <h5> August 2020 - November 2020 </h5>
     <div className="projectDescription">
       <ul>
         <li>
-          Generate Mel Spectrogram using librosa library and Extracted its
-          features.
+        Developed a game application that generates three-letter code based on response for the questionnaires
+  related to six sections of holland code (https://en.wikipedia.org/wiki/Holland_Codes).
         </li>
         <li>
-          Researched on concepts related to Machine Learning: algorithms, loss
-          functions and optimization techniques.
+        Developed containerized and scalable NodeJS backend server that communicates with front-end Unity
+application using RESTful API’s and Stores the user response in MySQL Database
         </li>
         <li>
-          Designed, trained and evaluated Neural Network Model based on
-          Tensorflow Framework with available Dataset.
+        Created User account handling APIs for secure login, account reset and JWT based authentication.
         </li>
         <li>
-          Deployed web application for the neural network endpoint using FLASK
-          API.
+        Designed SQL Schema with modern Data Modeling practices and implemented unit test with Jest Framework.
+        </li>
+        <li>
+        Deployed the multiple instances of server in GCP for handling concurrent connection.
+        </li>
+        <li>
+        Presented weekly work update through presentations which included all necessary budget expenditure and
+required equipment for the completion of project.
         </li>
       </ul>
     </div>
@@ -147,9 +152,9 @@ const ProjectList = () => {
         vertical={true}
         className={style.listb}
       >
-        <Tab id="p1" className={style.tab} title="Project1" panel={<Project1/>}/>
-        <Tab id="p2" className={style.tab} title="Project2" panel={<Project2/>}/>
-        <Tab id="p3" className={style.tab} title="Project3" panel={<Project3/>}/>
+        <Tab id="p1" className={style.tab} title="Holland Quest" panel={<Project1/>}/>
+        <Tab id="p2" className={style.tab} title="Music Genre Predictor" panel={<Project2/>}/>
+        <Tab id="p3" className={style.tab} title="Point of Sale System" panel={<Project3/>}/>
         <Tab id="p4" className={style.tab} title="Project4" panel={<Project4/>}/>
         <Tab id="p5" className={style.tab} title="Project5" panel={<Project5/>}/>
         <Tabs.Expander />

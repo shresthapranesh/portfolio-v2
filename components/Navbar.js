@@ -9,22 +9,43 @@ import {
 } from "@blueprintjs/core";
 import {useRouter} from "next/router";
 
-
+const navContainer = {
+  maxWidth: "50vw",
+  margin: "auto",
+}
 
 export default function Navigationbar() {
   const router = useRouter()
+  const hasWindow = typeof window !== 'undefined';
+  const getWidth = () => {
+    return hasWindow ? window.innerWidth : null
+  }
+  let iconOnly = true
+  const [width,setWidth] = React.useState(getWidth())
+  React.useEffect(() => {
+    if (hasWindow){ 
+      const handleResize = () => setWidth(getWidth())
+      window.addEventListener('resize', handleResize)
+      return ()  => window.removeEventListener('resize',handleResize)
+    }
+  }, [hasWindow])
+
+  if (width !== 'null' && width <= 700) {
+    iconOnly = true
+  } else {
+    iconOnly = false
+  }
 
   return (
-      <Navbar>
-        <NavbarGroup align={Alignment.LEFT}>
-          <NavbarHeading> <h2> Pranesh Shrestha </h2></NavbarHeading>
-        </NavbarGroup>
-        <NavbarGroup align={Alignment.RIGHT}>  
-            <Button className={Classes.MINIMAL} icon="home" text="Home" onClick={() => router.push("/")} />
-            <Button className={Classes.MINIMAL} icon="chat" text="Contact" onClick={() => router.push("/contact")} />
-            <Button className={Classes.MINIMAL} icon="build" text="Skills" onClick={() => router.push("/skills")} />
-            <Button className={Classes.MINIMAL} icon="projects" text="Projects" onClick={() => router.push("/projects")} />
-        </NavbarGroup>
-      </Navbar>
+      <div style={navContainer}>
+        <Navbar>
+          <NavbarGroup align={Alignment.CENTER}>
+              <Button className={Classes.MINIMAL} icon="home" onClick={() => router.push("/")} > {!iconOnly && "Home"} </Button>
+              <Button className={Classes.MINIMAL} icon="chat" onClick={() => router.push("/contact")} > {!iconOnly && "Contact"} </Button>
+              <Button className={Classes.MINIMAL} icon="build" onClick={() => router.push("/skills")} > {!iconOnly && "Skills"} </Button>
+              <Button className={Classes.MINIMAL} icon="projects" onClick={() => router.push("/projects")} > {!iconOnly && "Projects"} </Button>
+          </NavbarGroup>
+        </Navbar>
+      </div>
   );
 };

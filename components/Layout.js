@@ -1,6 +1,6 @@
 import Navigationbar from "./Navbar";
 import Head from "next/head";
-import React from 'react';
+import * as React from 'react';
 
 const Layout = (props) => (
   <React.Fragment>
@@ -14,7 +14,7 @@ const Layout = (props) => (
     <Navigationbar />
     <div>{props.children}</div>
 
-    <footer id="footer">
+    <footer>
       <div className="social">
         <ul className="social-list">
           <li>
@@ -43,11 +43,6 @@ const Layout = (props) => (
             </a>
           </li>
         </ul>
-      </div>
-
-      <div className="copy">
-        <p>Created By Pranesh Shrestha</p>
-        <p>&copy; All Rights Reserved</p>
       </div>
     </footer>
   </React.Fragment>

@@ -6,12 +6,12 @@ const Programming = () => (
     <div>
       <ul>
         <span>Programming</span>
+        <li>TypeScript</li>
         <li>Python</li>
+        <li>C/C++</li>
+        <li>HTML</li>
         <li>Java</li>
-        <li>C++</li>
-        <li>Javascript</li>
-        <li>Matlab</li>
-        <li>Verilog</li>
+        <li>C#</li>
         <li>SQL</li>
       </ul>
     </div>
@@ -22,12 +22,13 @@ const MLFramework = () => (
   <div className={styles.listA}>
     <div>
       <ul>
-        <span> ML Framework</span>
-        <li>Tensorflow</li>
-        <li>Pytorch</li>
-        <li>Scikit</li>
-        <li>OpenCV</li>
-        <li>Scipy</li>
+        <span>Professional Toolset</span>
+        <li>Git</li>
+        <li>Confluence</li>
+        <li>Jira</li>
+        <li>Clearcase</li>
+        <li>Bazel</li>
+        <li>Jenkins</li>
       </ul>
     </div>
   </div>
@@ -55,7 +56,7 @@ const TestFramework = () => (
         <span> Test Framework</span>
         <li>Jest</li>
         <li>Junit</li>
-        <li>Cucumber</li>
+        <li>Google Test</li>
       </ul>
     </div>
   </div>
