@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import * as React from "react";
 import {
   FormGroup, InputGroup, Label, HTMLSelect, Button, Toast, Toaster, Position, Intent, TextArea, Classes
 } from "@blueprintjs/core"
@@ -16,10 +16,10 @@ const flex = {
 
 
 const Form = () => {
-  const [name, setName] = useState('');
-  const [subject, setSubject] = useState('General Question');
-  const [message, setMessage] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = React.useState('');
+  const [subject, setSubject] = React.useState('General Question');
+  const [message, setMessage] = React.useState('');
+  const [email, setEmail] = React.useState('');
 
   const options = [
     {label: "Business", value: "Business"},
@@ -28,34 +28,35 @@ const Form = () => {
 
   
 
-  const handleClick = () => {
+  const handleClick = async () => {
     let success = true
     fetch('/api/contactForm',{
       method: 'POST',
-      body: {
-        name, subject, message, email
-      }
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        subject:subject, 
+        message:message, 
+        email:email
+      })
     }).then(response => {
       if (response.status != 200){
         success = false
         console.log(success)
-        // errorToast.show({intent: Intent.DANGER,message: (<> Failed </>)})
       }
     }).catch(e => console.log(e))
     setName('')
     setSubject('General Question')
     setMessage('')
     setEmail('')
-    if (success != false){
-      // return errorToast.show({intent: Intent.PRIMARY,message: (<> Pass </>)})
-  
-    }
   }
 
   return (
     <div className={styles.container}>
       <FormGroup className={styles.form_field}>
-        <div style={flex}>
+        <div >
           <Label style={{width: "50%"}}> Full Name
             <input style={{width:"100%"}}  className={Classes.INPUT} onChange={(e) => setName(e.target.value)} placeholder="Full name" required/>
           </Label>

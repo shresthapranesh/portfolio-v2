@@ -9,22 +9,18 @@ import styles from "../styles/index.module.css";
 
 const MyImage = () => {
   return (
+    <div style={{display:'block'}}>
     <Image
       src="/images/2.jpg"
       alt="mypic"
       height={500}
       width={665}
     />
+    </div>
   );
 };
 
 const Index = () => {
-  const router = useRouter()
-  useEffect(() => {
-    router.prefetch("/contacts")
-    router.prefetch("/skills")
-    router.prefetch("/projects")
-  })
 
   const handleClick = async () => {
     await fetch('/api/getResume',{
@@ -38,9 +34,7 @@ const Index = () => {
   return (
     <Layout>
       <div className={styles.container}>
-        <div>
         <MyImage />
-        </div>
         <div className={styles.inner_container}>
           <Blockquote>
             <p>
