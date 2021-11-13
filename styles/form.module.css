@@ -1,12 +1,10 @@
-.container {
-    margin: 0;
-    position: absolute;
-    top:50%;
-    left:50%;
-    -ms-transform:translate(-50%,-50%);
-    transform:translate(-50%,-50%);
+.container{
+    display: flex;
+    justify-content: center;
+    padding: 10vh 0;
 }
 
 .form_field {
-    width: 40vw;
+    width: 50vw;
+    background-color: #f5f8fa;
 }

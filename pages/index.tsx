@@ -1,15 +1,17 @@
-import React, { Component, useEffect } from "react";
-import {useRouter} from "next/router";
+import * as React from "react";
 import Image from "next/image"
 import Layout from "../components/Layout";
 import {
-  Blockquote, Button
+  Blockquote
 } from "@blueprintjs/core"
 import styles from "../styles/index.module.css";
+import {Button} from 'antd'
+import { Typography } from "antd";
+const {Title, Paragraph, Text} = Typography
 
 const MyImage = () => {
   return (
-    <div style={{display:'block'}}>
+    <div className={styles.inner_container}>
     <Image
       src="/images/2.jpg"
       alt="mypic"
@@ -36,18 +38,18 @@ const Index = () => {
       <div className={styles.container}>
         <MyImage />
         <div className={styles.inner_container}>
-          <Blockquote>
-            <p>
+          <Typography>
+            <Paragraph>
               Hello, there <br />
               I am
-              <span className={styles.headingXl}> Pranesh Shrestha. </span>
-            </p>
-            <p>
+              <Title level={2}>Pranesh Shrestha</Title>
+            </Paragraph>
+            <Paragraph>
               I am a full time Software Engineer.
               <br /> Welcome to my Portfolio Website.
-            </p>
-            <Button intent="primary" icon="document" text="Resume" onClick={handleClick} />
-          </Blockquote>
+            </Paragraph>
+            <Button type="primary" onClick={handleClick}>Resume</Button>
+          </Typography>
         </div>
       </div>
     </Layout>

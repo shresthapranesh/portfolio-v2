@@ -3,8 +3,7 @@
     left: 50%;
     text-align: center;
     font-size: large;
-    
-    padding: 10vh 0;
+    padding: 5vh 0;
     margin: 0 10vw;
     display: flex;
     flex-flow: row;
@@ -12,8 +11,8 @@
   }
   
   .inner_container {
-    padding: 10vh 0;
-    margin: auto 5vw;
+    padding: 5vh 0;
+    margin: auto 3vw;
   }
   
   .headingXl {

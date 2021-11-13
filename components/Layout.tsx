@@ -1,7 +1,9 @@
 import Navigationbar from "./Navbar";
 import Head from "next/head";
 import * as React from 'react';
-import { Divider, H1 } from "@blueprintjs/core";
+import { Typography,Divider } from "antd";
+const {Title} = Typography
+
 
 const Layout = (props:JSX.ElementChildrenAttribute) => (
   <div>
@@ -17,8 +19,8 @@ const Layout = (props:JSX.ElementChildrenAttribute) => (
 
     <footer>
       <div className="footer">
-          <H1>Links</H1>
-          <Divider />
+          <Title level={2}>Links</Title>
+          <Divider style={{height: '100%'}} type="vertical"/>
           <a href="https://www.github.com/shresthapranesh">
             <img src="https://img.icons8.com/color/32/000000/github--v1.png" />
           </a>

@@ -1,5 +1,6 @@
-.navbtn {
-    background-color: beige;
-    color: white;
-
+.btn:hoover {
+    color: rgb(189, 216, 216);
+}
+.btn button:hover{
+    background-color: rgb(189, 216, 216);
 }

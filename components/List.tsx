@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import * as React from "react";
+import {Card} from '@blueprintjs/core'
 import styles from "../styles/skills.module.css";
 
 const Programming = () => (
-  <div className={styles.listA}>
-    <div>
       <ul>
         <span>Programming</span>
         <li>TypeScript</li>
@@ -14,13 +13,9 @@ const Programming = () => (
         <li>C#</li>
         <li>SQL</li>
       </ul>
-    </div>
-  </div>
 );
 
 const MLFramework = () => (
-  <div className={styles.listA}>
-    <div>
       <ul>
         <span>Professional Toolset</span>
         <li>Git</li>
@@ -30,13 +25,9 @@ const MLFramework = () => (
         <li>Bazel</li>
         <li>Jenkins</li>
       </ul>
-    </div>
-  </div>
 );
 
 const WebFramework = () => (
-  <div className={styles.listA}>
-    <div>
       <ul>
         <span> Web Framework</span>
         <li>ExpressJs</li>
@@ -45,26 +36,18 @@ const WebFramework = () => (
         <li>Flask</li>
         <li>Socket.io</li>
       </ul>
-    </div>
-  </div>
 );
 
 const TestFramework = () => (
-  <div className={styles.listA}>
-    <div>
       <ul>
         <span> Test Framework</span>
         <li>Jest</li>
         <li>Junit</li>
         <li>Google Test</li>
       </ul>
-    </div>
-  </div>
 );
 
 const Participation = () => (
-  <div className={styles.listA}>
-    <div>
       <ul>
         <span>Participation</span>
         <li> IEEE</li>
@@ -73,17 +56,25 @@ const Participation = () => (
         <li>Youth Mappers</li>
         <li>Nepalese Student Associate at TTU</li>
       </ul>
-    </div>
-  </div>
 );
 
 const List = () => (
   <div className={styles.container}>
-    <Programming />
-    <MLFramework />
-    <WebFramework />
-    <TestFramework />
-    <Participation />
+    <Card elevation={2} interactive>
+      <Programming />
+    </Card>
+    <Card elevation={2} interactive>
+      <MLFramework />
+    </Card>
+    <Card elevation={2} interactive>
+      <WebFramework />
+    </Card>
+    <Card elevation={2} interactive>
+      <TestFramework />
+    </Card>
+    <Card elevation={2} interactive>
+      <Participation />
+    </Card>
   </div>
 );
 

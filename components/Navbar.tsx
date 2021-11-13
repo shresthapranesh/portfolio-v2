@@ -5,10 +5,10 @@ import {
   Classes,
   Navbar,
   NavbarGroup,
-  NavbarHeading, H1
+  NavbarHeading, H1, Tabs, Tab
 } from "@blueprintjs/core";
 import {useRouter} from "next/router";
-import navStyle from '../styles/navbar.module.css'
+import * as navStyle from '../styles/navbar.module.css'
 
 
 const navContainer = {
@@ -32,12 +32,12 @@ export default function Navigationbar() {
 
   return (
       <div style={navContainer}>
-        <Navbar>
+        <Navbar className={navStyle.default.btn}>
           <NavbarGroup align={Alignment.CENTER}>
-              <Button className={navStyle.navbtn} minimal icon="home" onClick={() => router.push("/")} > {!iconOnly && "Home"} </Button>
-              <Button className={navStyle.navbtn} minimal icon="chat" onClick={() => router.push("/contact")} > {!iconOnly && "Contact"} </Button>
-              <Button className={navStyle.navbtn} minimal icon="build" onClick={() => router.push("/skills")} > {!iconOnly && "Skills"} </Button>
-              <Button className={navStyle.navbtn} minimal icon="projects" onClick={() => router.push("/projects")} > {!iconOnly && "Projects"} </Button>
+              <Button role="tab" minimal icon="home" onClick={() => router.push("/")} > {!iconOnly && "Home"} </Button>
+              <Button role="navigation" minimal icon="chat" onClick={() => router.push("/contact")} > {!iconOnly && "Contact"} </Button>
+              <Button role="navigation" minimal icon="build" onClick={() => router.push("/skills")} > {!iconOnly && "Skills"} </Button>
+              <Button role="navigation" minimal icon="projects" onClick={() => router.push("/projects")} > {!iconOnly && "Projects"} </Button>
           </NavbarGroup>
         </Navbar>
       </div>

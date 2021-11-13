@@ -1,6 +1,6 @@
 import * as React from "react";
 import {
-  FormGroup, InputGroup, Label, HTMLSelect, Button, Toast, Toaster, Position, Intent, TextArea, Classes
+  FormGroup, InputGroup, Label, HTMLSelect, Button,  Intent, TextArea
 } from "@blueprintjs/core"
 import styles from "../styles/form.module.css"
 
@@ -15,7 +15,7 @@ const flex = {
 }
 
 
-const Form = () => {
+const Form:React.FC = () => {
   const [name, setName] = React.useState('');
   const [subject, setSubject] = React.useState('General Question');
   const [message, setMessage] = React.useState('');
@@ -30,7 +30,7 @@ const Form = () => {
 
   const handleClick = async () => {
     let success = true
-    fetch('/api/contactForm',{
+    await fetch('/api/contactForm',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -41,12 +41,7 @@ const Form = () => {
         message:message, 
         email:email
       })
-    }).then(response => {
-      if (response.status != 200){
-        success = false
-        console.log(success)
-      }
-    }).catch(e => console.log(e))
+    }).then(response => response.text()).then(blob => console.log(blob)).catch(e => console.log(e))
     setName('')
     setSubject('General Question')
     setMessage('')
@@ -58,10 +53,10 @@ const Form = () => {
       <FormGroup className={styles.form_field}>
         <div >
           <Label style={{width: "50%"}}> Full Name
-            <input style={{width:"100%"}}  className={Classes.INPUT} onChange={(e) => setName(e.target.value)} placeholder="Full name" required/>
+            <InputGroup onChange={(e) => setName(e.target.value)} placeholder="Full Name" />
           </Label>
-          <Label style={{paddingLeft: "1vw", width:"50%"}}> Email
-            <input className={Classes.INPUT} style={{width:"100%"}} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required/>
+          <Label style={{}}> Email
+            <InputGroup onChange={(e) => setEmail(e.target.value)} fill placeholder="Email" />
           </Label>
         </div>
         
@@ -72,7 +67,7 @@ const Form = () => {
         <Label> Message
           <TextArea growVertically={true} fill={true} large={true} intent={Intent.PRIMARY} onChange={(e) => setMessage(e.target.value)} required/>
         </Label>
-        <Button  intent="primary" role="submit" text="Submit" onClick={handleClick} />
+        <Button intent="primary" role="submit" text="Submit" onClick={handleClick} />
       </FormGroup>
     </div>
   );
