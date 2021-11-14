@@ -1,10 +1,14 @@
 .container{
+    text-align: center;
+    padding: 5vh 0;
+    margin: auto; 
+    width: 700px;  
     display: flex;
     justify-content: center;
-    padding: 10vh 0;
 }
 
-.form_field {
-    width: 50vw;
-    background-color: #f5f8fa;
+@media only screen and (max-width:767px) {
+    .container { 
+        width:300px; 
+   }
 }

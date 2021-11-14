@@ -1,9 +1,9 @@
 import Layout from "../components/Layout";
-import Form from "../components/Form";
+import ContactForm from "../components/Form";
 
 const Contact = () => (
   <Layout>
-    <Form />
+    <ContactForm />
   </Layout>
 );
 

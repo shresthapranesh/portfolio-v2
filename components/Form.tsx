@@ -1,7 +1,5 @@
 import * as React from "react";
-import {
-  FormGroup, InputGroup, Label, HTMLSelect, Button,  Intent, TextArea
-} from "@blueprintjs/core"
+import {Form, Input, Button, Space} from 'antd';
 import styles from "../styles/form.module.css"
 
 // const errorToast = Toaster.create({
@@ -14,21 +12,20 @@ const flex = {
   flexDirection: "row",
 }
 
+const validateMessages = {
+  required: '${label} is required!',
+  types: {
+    email: '${label} is not a valid email!',
+    number: '${label} is not a valid number!',
+  },
+}
 
-const Form:React.FC = () => {
-  const [name, setName] = React.useState('');
-  const [subject, setSubject] = React.useState('General Question');
-  const [message, setMessage] = React.useState('');
-  const [email, setEmail] = React.useState('');
 
-  const options = [
-    {label: "Business", value: "Business"},
-    {label: "General Question", value: "General Question"}
-  ];
+const ContactForm:React.FC = () => {
+  const [form] = Form.useForm()
 
-  
 
-  const handleClick = async () => {
+  const handleSubmit = async (values:any) => {
     let success = true
     await fetch('/api/contactForm',{
       method: 'POST',
@@ -36,42 +33,60 @@ const Form:React.FC = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: name,
-        subject:subject, 
-        message:message, 
-        email:email
+        name: values.fullname, 
+        message:values.message, 
+        email:values.email
       })
     }).then(response => response.text()).then(blob => console.log(blob)).catch(e => console.log(e))
-    setName('')
-    setSubject('General Question')
-    setMessage('')
-    setEmail('')
+  }
+  const handleReset = () => {
+    form.resetFields()
   }
 
   return (
     <div className={styles.container}>
-      <FormGroup className={styles.form_field}>
-        <div >
-          <Label style={{width: "50%"}}> Full Name
-            <InputGroup onChange={(e) => setName(e.target.value)} placeholder="Full Name" />
-          </Label>
-          <Label style={{}}> Email
-            <InputGroup onChange={(e) => setEmail(e.target.value)} fill placeholder="Email" />
-          </Label>
-        </div>
+      <Form
+        form={form}
+        initialValues={{remember:true}}
+        onFinish={handleSubmit}
+        autoComplete="off"
+        validateMessages={validateMessages}
+        style={{width:'90%'}}
+        size="large"
+      >
+        <Form.Item
+          label="Name"
+          name="fullname"
+          rules={[{ required: true }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Email"
+          name="email"
+          rules={[{ type: 'email',required: true }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Message"
+          name="message"
+          rules={[{ required: true, message: 'Message is required!' }]}
+        >
+          <Input.TextArea />
+        </Form.Item>
         
-        <Label> Subject
-          <HTMLSelect onChange={(e) => setSubject(e.target.value)} options={options} />
-        </Label>
-    
-        <Label> Message
-          <TextArea growVertically={true} fill={true} large={true} intent={Intent.PRIMARY} onChange={(e) => setMessage(e.target.value)} required/>
-        </Label>
-        <Button intent="primary" role="submit" text="Submit" onClick={handleClick} />
-      </FormGroup>
+        <Form.Item
+        >
+          <Space>
+          <Button type="primary" htmlType="submit" >Submit</Button>
+          <Button  htmlType="button" onClick={handleReset}>Reset</Button>
+          </Space>
+        </Form.Item>
+      </Form>
     </div>
   );
 
 }
 
-export default Form;
+export default ContactForm;
