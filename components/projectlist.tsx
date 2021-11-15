@@ -144,7 +144,7 @@ const Project5 = () => (
 
 const ProjectList = () => {
   return (
-    <div className={style.ProjectList}>
+    <div className={style.container}>
       <Card bordered={false}>
         <Project1 />
       </Card>

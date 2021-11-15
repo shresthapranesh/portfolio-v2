@@ -1,5 +1,5 @@
-import * as React from "react";
-import {Form, Input, Button, Space} from 'antd';
+import * as React from 'react';
+import {Form, Input, Button, Space, message} from 'antd';
 import styles from "../styles/form.module.css"
 
 // const errorToast = Toaster.create({
@@ -25,9 +25,9 @@ const ContactForm:React.FC = () => {
   const [form] = Form.useForm()
 
 
-  const handleSubmit = async (values:any) => {
+  const handleSubmit = (values:any)=> {
     let success = true
-    await fetch('/api/contactForm',{
+    fetch('/api/contactForm',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ const ContactForm:React.FC = () => {
         message:values.message, 
         email:values.email
       })
-    }).then(response => response.text()).then(blob => console.log(blob)).catch(e => console.log(e))
+    }).then(response => response.text()).then(text => message.success(text)).catch(e => message.error(e))
   }
   const handleReset = () => {
     form.resetFields()

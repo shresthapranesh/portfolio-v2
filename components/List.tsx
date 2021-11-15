@@ -1,80 +1,77 @@
 import * as React from "react";
-import {Card} from '@blueprintjs/core'
+import {Card, Row, Col} from 'antd'
 import styles from "../styles/skills.module.css";
 
 const Programming = () => (
-      <ul>
-        <span>Programming</span>
-        <li>TypeScript</li>
-        <li>Python</li>
-        <li>C/C++</li>
-        <li>HTML</li>
-        <li>Java</li>
-        <li>C#</li>
-        <li>SQL</li>
-      </ul>
+      <Card title="Programming" bordered={false} style={{width:300}} >
+        <p>TypeScript</p>
+        <p>Python</p>
+        <p>C/C++</p>
+        <p>HTML</p>
+        <p>Java</p>
+        <p>C#</p>
+        <p>SQL</p>
+      </Card>
 );
 
-const MLFramework = () => (
-      <ul>
-        <span>Professional Toolset</span>
-        <li>Git</li>
-        <li>Confluence</li>
-        <li>Jira</li>
-        <li>Clearcase</li>
-        <li>Bazel</li>
-        <li>Jenkins</li>
-      </ul>
+const DevTool = () => (
+      <Card title="DevTool" bordered={false} style={{width:300}}>
+        <p>Git</p>
+        <p>Confluence</p>
+        <p>Jira</p>
+        <p>Clearcase</p>
+        <p>Bazel</p>
+        <p>Jenkins</p>
+      </Card>
 );
 
 const WebFramework = () => (
-      <ul>
-        <span> Web Framework</span>
-        <li>ExpressJs</li>
-        <li>ReactJs</li>
-        <li>NextJs</li>
-        <li>Flask</li>
-        <li>Socket.io</li>
-      </ul>
+      <Card title="Web Frameworks" bordered={false} style={{width:300}}>
+        <p>React</p>
+        <p>Redux</p>
+        <p>Express.js</p>
+        <p>Next.js</p>
+        <p>Angular</p>
+      </Card>
+);
+
+const WebAPI = () => (
+  <Card title="Web API" bordered={false} style={{width:300}}>
+    <p>REST</p>
+    <p>gRPC</p>
+    <p>WebSocket</p>
+    <p>HTTP</p>
+  </Card>
 );
 
 const TestFramework = () => (
-      <ul>
-        <span> Test Framework</span>
-        <li>Jest</li>
-        <li>Junit</li>
-        <li>Google Test</li>
-      </ul>
+      <Card title="Testing" bordered={false} style={{width:300}}>
+        <p>Jest</p>
+        <p>Junit</p>
+        <p>Google Test</p>
+        <p>Mocha</p>
+      </Card>
 );
 
-const Participation = () => (
-      <ul>
-        <span>Participation</span>
-        <li> IEEE</li>
-        <li>Google Student Developer Club</li>
-        <li>HackwesTX</li>
-        <li>Youth Mappers</li>
-        <li>Nepalese Student Associate at TTU</li>
-      </ul>
-);
+
 
 const List = () => (
   <div className={styles.container}>
-    <Card elevation={2} interactive>
-      <Programming />
-    </Card>
-    <Card elevation={2} interactive>
-      <MLFramework />
-    </Card>
-    <Card elevation={2} interactive>
-      <WebFramework />
-    </Card>
-    <Card elevation={2} interactive>
-      <TestFramework />
-    </Card>
-    <Card elevation={2} interactive>
-      <Participation />
-    </Card>
+
+        <Programming />
+ 
+
+        <DevTool />
+   
+
+        <WebFramework />
+
+ 
+        <WebAPI />
+
+        <TestFramework />
+
+
   </div>
 );
 

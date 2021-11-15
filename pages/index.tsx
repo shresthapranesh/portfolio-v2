@@ -1,9 +1,6 @@
 import * as React from "react";
 import Image from "next/image"
 import Layout from "../components/Layout";
-import {
-  Blockquote
-} from "@blueprintjs/core"
 import styles from "../styles/index.module.css";
 import {Button} from 'antd'
 import { Typography } from "antd";
@@ -23,7 +20,7 @@ const MyImage = () => {
 };
 
 const Index = () => {
-
+  React.useEffect(() => {console.log('Index')},[])
   const handleClick = async () => {
     await fetch('/api/getResume',{
       method: "GET",
