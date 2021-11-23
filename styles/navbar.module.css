@@ -1,6 +1,11 @@
-.btn:hoover {
-    color: rgb(189, 216, 216);
+.container{
+    justify-content:'center';
+    background-color:'#f5f8fa';
 }
-.btn button:hover{
-    background-color: rgb(189, 216, 216);
-}
+
+@media only screen and (max-width:767px) {
+    .container{
+      justify-content: unset;
+      width: 100%;
+    }
+  }

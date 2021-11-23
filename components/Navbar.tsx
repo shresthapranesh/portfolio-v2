@@ -1,13 +1,11 @@
 import * as React from "react";
 import {Menu} from 'antd'
 import {useRouter} from "next/router";
-import * as navStyle from '../styles/navbar.module.css'
+import navStyle from '../styles/navbar.module.css'
 
 export default function Navigationbar() {
   const router = useRouter()
   const [current,setCurrent] = React.useState()
-  React.useEffect(() =>{console.log(current)},[current])
-  React.useEffect(() => {console.log('Nav')},[])
   const handleClick = React.useCallback((e: any) => {
     let route;
     console.log(e.domEvent.preventDefault())
@@ -24,7 +22,7 @@ export default function Navigationbar() {
 
   return (
       <>
-      <Menu style={{justifyContent:'center',backgroundColor:'#f5f8fa'}} 
+      <Menu className={navStyle.container}
         selectedKeys={[current!]} 
         mode="horizontal" onClick={handleClick}
       >

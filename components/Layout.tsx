@@ -7,7 +7,6 @@ const {Header,Content,Footer} = Layout
 
 
 const Page = (props:JSX.ElementChildrenAttribute) => {
-  React.useEffect(()=>{console.log('Layout')},[])
 
   return (
     <>

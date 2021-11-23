@@ -8,19 +8,16 @@ const {Title, Paragraph, Text} = Typography
 
 const MyImage = () => {
   return (
-    <div className={styles.inner_container}>
     <Image
       src="/images/2.jpg"
       alt="mypic"
       height={500}
       width={665}
     />
-    </div>
   );
 };
 
 const Index = () => {
-  React.useEffect(() => {console.log('Index')},[])
   const handleClick = async () => {
     await fetch('/api/getResume',{
       method: "GET",
@@ -34,6 +31,7 @@ const Index = () => {
     <Layout>
       <div className={styles.container}>
         <MyImage />
+        
         <div className={styles.inner_container}>
           <Typography>
             <Paragraph>
@@ -48,6 +46,7 @@ const Index = () => {
             <Button type="primary" onClick={handleClick}>Resume</Button>
           </Typography>
         </div>
+        
       </div>
     </Layout>
   );

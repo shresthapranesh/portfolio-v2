@@ -3,6 +3,4 @@ steps:
       args: ["install"]
     - name: "gcr.io/cloud-builders/yarn"
       args: ["run", "build"]
-    - name: "gcr.io/cloud-builders/npm"
-      args: ["run", "deploy"]
   timeout: "600s"
