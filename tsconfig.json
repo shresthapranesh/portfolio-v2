@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "esnext",
+    "target": "ES2020",
+    "module": "ESNext",
     "lib": [
-      "dom",
-      "dom.Iterable",
-      "esnext"
+      "DOM",
+      "DOM.Iterable",
+      "ESNext",
+      "WebWorker"
     ],
     "typeRoots": [
       "./node_modules/@types"
@@ -13,6 +14,7 @@
     "declaration": true,
     "declarationMap": true,
     "jsx": "preserve",
+    "jsxImportSource": "@emotion/react",
     "strict": true,
     "sourceMap": true,
     "rootDir": ".",

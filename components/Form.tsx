@@ -1,16 +1,7 @@
 import * as React from 'react';
 import {Form, Input, Button, Space, message} from 'antd';
-import styles from "../styles/form.module.css"
+import {Stack} from './Stack/Stack'
 
-// const errorToast = Toaster.create({
-//   className: "recipe-toaster",
-//   position: Position.TOP,
-// })
-
-const flex = {
-  display: "flex",
-  flexDirection: "row",
-}
 
 const validateMessages = {
   required: '${label} is required!',
@@ -23,7 +14,6 @@ const validateMessages = {
 
 const ContactForm:React.FC = () => {
   const [form] = Form.useForm()
-
 
   const handleSubmit = (values:any)=> {
     let success = true
@@ -38,13 +28,14 @@ const ContactForm:React.FC = () => {
         email:values.email
       })
     }).then(response => response.text()).then(text => message.success(text)).catch(e => message.error(e))
+    form.resetFields()
   }
   const handleReset = () => {
     form.resetFields()
   }
 
   return (
-    <div className={styles.container}>
+    <Stack alignItems="center" sx={{paddingTop:10,width:800}}>
       <Form
         form={form}
         initialValues={{remember:true}}
@@ -84,7 +75,7 @@ const ContactForm:React.FC = () => {
           </Space>
         </Form.Item>
       </Form>
-    </div>
+    </Stack>
   );
 
 }

@@ -1,7 +1,8 @@
 import * as React from "react";
 import Image from "next/image"
+import {Stack} from '../components'
 import Layout from "../components/Layout";
-import styles from "../styles/index.module.css";
+import { useMediaQuery } from "../hooks";
 import {Button} from 'antd'
 import { Typography } from "antd";
 const {Title, Paragraph, Text} = Typography
@@ -18,8 +19,9 @@ const MyImage = () => {
 };
 
 const Index = () => {
-  const handleClick = async () => {
-    await fetch('/api/getResume',{
+  const smallDevice = useMediaQuery("(max-width: 468px)")
+  const handleClick = () => {
+    fetch('/api/getResume',{
       method: "GET",
     }).then(response => response.blob()).then( blob => {
       const url = URL.createObjectURL(blob)
@@ -29,10 +31,10 @@ const Index = () => {
 
   return (
     <Layout>
-      <div className={styles.container}>
+      <Stack justifyContent="center" flexGrow={1} sx={{paddingTop:20}} direction={smallDevice?"column":"row"}>
         <MyImage />
         
-        <div className={styles.inner_container}>
+        <Stack justifyContent='center' alignContent="center" sx={{paddingLeft:100}}>
           <Typography>
             <Paragraph>
               Hello, there <br />
@@ -43,11 +45,9 @@ const Index = () => {
               I am a full time Software Engineer.
               <br /> Welcome to my Portfolio Website.
             </Paragraph>
-            <Button type="primary" onClick={handleClick}>Resume</Button>
           </Typography>
-        </div>
-        
-      </div>
+        </Stack>
+      </Stack>
     </Layout>
   );
 }

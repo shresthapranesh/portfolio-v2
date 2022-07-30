@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Card,List, Typography, Divider} from 'antd';
-import style from "../styles/projects.module.css"
+import { Stack } from "./Stack/Stack";
 
 const Project1 = () => (
   <>
@@ -144,7 +144,7 @@ const Project5 = () => (
 
 const ProjectList = () => {
   return (
-    <div className={style.container}>
+    <Stack sx={{paddingTop:10, width:1000}}>
       <Card bordered={false}>
         <Project1 />
       </Card>
@@ -160,7 +160,7 @@ const ProjectList = () => {
       <Card bordered={false}>
         <Project5 />
       </Card>
-    </div>
+    </Stack>
   );
 }
 

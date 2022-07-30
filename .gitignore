@@ -3,3 +3,4 @@ google-cloud-sdk/
 .next/
 .env.local
 out/
+**/.DS_Store

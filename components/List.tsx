@@ -1,6 +1,7 @@
 import * as React from "react";
 import {Card, Row, Col} from 'antd'
-import styles from "../styles/skills.module.css";
+import { Stack } from "./Stack/Stack";
+import { useMediaQuery } from "../hooks";
 
 const Programming = () => (
       <Card title="Programming" bordered={false} style={{width:300}} >
@@ -55,24 +56,23 @@ const TestFramework = () => (
 
 
 
-const List = () => (
-  <div className={styles.container}>
-
+const List = () => {
+  const smallDevice = useMediaQuery("(max-width: 468px)")
+  
+  return(
+  <Stack  
+    justifyContent="center" 
+    sx={{
+      paddingTop:10,
+    }} 
+    direction={smallDevice?"column":"row"}>
         <Programming />
- 
-
-        <DevTool />
-   
-
-        <WebFramework />
-
- 
+        <DevTool />  
+        <WebFramework /> 
         <WebAPI />
-
         <TestFramework />
-
-
-  </div>
-);
+  </Stack>
+  )
+}
 
 export default List;
