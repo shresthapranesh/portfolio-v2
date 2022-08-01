@@ -5,6 +5,7 @@ import * as React from 'react';
 import styled from '@emotion/styled'
 
 import {Stack} from './Stack/Stack'
+import { SocialButton } from "./SocialButton";
 
 const Layout = styled('div')({
   display:'flex',
@@ -32,25 +33,11 @@ const Page = (props:PageProps) => {
 
         <Stack justifyContent="center" alignItems="center" direction="row">
                 <h1>Links</h1>
-                <a href="https://www.github.com/shresthapranesh">
-                  <Image height={32} width={32} alt="Github" src="https://img.icons8.com/color/32/000000/github--v1.png" />
-                </a>
-              
-                <a href="https://www.linkedin.com/in/praneshshrestha">
-                  <Image height={32} width={32} alt="LinkedIn" src="https://img.icons8.com/color/32/000000/linkedin.png" />
-                </a>
-              
-                <a href="https://www.twitter.com/shresthapranesh">
-                  <Image height={32} width={32} alt="Twitter" src="https://img.icons8.com/color/32/000000/twitter-squared.png" />
-                </a>
-              
-                <a href="https://www.facebook.com/pranesh.shrestha">
-                  <Image height={32} width={32} alt="Facebook" src="https://img.icons8.com/color/32/000000/facebook-new.png" />
-                </a>
-              
-                <a href="https://www.instagram.com/praneshshrestha13/">
-                  <Image height={32} width={32} alt="Instagram" src="https://img.icons8.com/color/32/000000/instagram-new.png" />
-                </a>
+                <SocialButton link="https://www.github.com/shresthapranesh" img="https://img.icons8.com/color/32/000000/github--v1.png" />
+                <SocialButton link="https://www.linkedin.com/in/praneshshrestha" img="https://img.icons8.com/color/32/000000/linkedin.png" />
+                <SocialButton link="https://www.twitter.com/shresthapranesh" img="https://img.icons8.com/color/32/000000/twitter-squared.png" />
+                <SocialButton link="https://www.facebook.com/pranesh.shrestha" img="https://img.icons8.com/color/32/000000/facebook-new.png" />
+                <SocialButton link="https://www.instagram.com/praneshshrestha13/" img="https://img.icons8.com/color/32/000000/instagram-new.png" />
         </Stack>
       </Layout>
   );
