@@ -28,6 +28,7 @@ export const SocialButton:React.FC<SocialButtonProps> = (props) => {
                 height={32}
                 width={32}
                 src={props.img}
+                alt=""
             />
         </a>
     )
