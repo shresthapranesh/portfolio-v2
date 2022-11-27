@@ -1,13 +1,5 @@
 import * as React from "react";
-import styled from '@emotion/styled'
-
-
 import {NavBar,NavBarList,NavItem} from './NavBar'
-
-const NavBarContainer = styled('div')({
-  display: 'flex',
-  justifyContent: 'center'
-})
 
 export default function Navigationbar() {
   return (

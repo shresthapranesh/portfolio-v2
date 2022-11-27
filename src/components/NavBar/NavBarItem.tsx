@@ -1,9 +1,8 @@
 import * as React from 'react'
-import {css} from '@emotion/react'
 import {useRouter} from "next/router";
 
 type NavItemProps = {
-    children?:React.ReactNode,
+    children:React.ReactNode,
     routes:string
 }
 
@@ -17,20 +16,7 @@ export const NavItem = React.forwardRef<HTMLLIElement,NavItemProps>((props,ref) 
         <li
             onClick={handleClick}
             ref={ref}
-            css={{
-                listStyleType: 'none',
-                fontSize: '15px',
-                cursor: 'pointer',
-                margin: '20px',
-                textAlign: 'center',
-                '& :first-child':{
-                    marginTop: 0,
-                },
-                '& :hover': {
-                    opacity: 0.5
-                }
-            }}
-
+            className="text-sm m-5 text-center hover:opacity-50 hover:cursor-pointer"
         >
             {props.children}
         </li>

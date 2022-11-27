@@ -1,10 +1,17 @@
 import * as React from "react";
-import {Card, Row, Col} from 'antd'
-import { Stack } from "./Stack/Stack";
 import { useMediaQuery } from "../hooks";
 
+const Card = (props:React.ComponentPropsWithRef<"div">&{title:string}) => (
+  <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <p>
+      {props.title}
+    </p>
+    {props.children}
+  </div>
+)
+
 const Programming = () => (
-      <Card title="Programming" bordered={false} style={{width:300}} >
+      <Card title="Programming">
         <p>TypeScript</p>
         <p>Python</p>
         <p>C/C++</p>
@@ -16,7 +23,7 @@ const Programming = () => (
 );
 
 const DevTool = () => (
-      <Card title="DevTool" bordered={false} style={{width:300}}>
+      <Card title="DevTool">
         <p>Git</p>
         <p>Confluence</p>
         <p>Jira</p>
@@ -27,7 +34,7 @@ const DevTool = () => (
 );
 
 const WebFramework = () => (
-      <Card title="Web Frameworks" bordered={false} style={{width:300}}>
+      <Card title="Web Frameworks">
         <p>React</p>
         <p>Redux</p>
         <p>Express.js</p>
@@ -37,7 +44,7 @@ const WebFramework = () => (
 );
 
 const WebAPI = () => (
-  <Card title="Web API" bordered={false} style={{width:300}}>
+  <Card title="Web API">
     <p>REST</p>
     <p>gRPC</p>
     <p>WebSocket</p>
@@ -46,7 +53,7 @@ const WebAPI = () => (
 );
 
 const TestFramework = () => (
-      <Card title="Testing" bordered={false} style={{width:300}}>
+      <Card title="Testing">
         <p>Jest</p>
         <p>Junit</p>
         <p>Google Test</p>
@@ -60,18 +67,13 @@ const List = () => {
   const smallDevice = useMediaQuery("(max-width: 468px)")
   
   return(
-  <Stack  
-    justifyContent="center" 
-    sx={{
-      paddingTop:10,
-    }} 
-    direction={smallDevice?"column":"row"}>
+  <div className="flex flex-row justify-center pt-3 gap-3">
         <Programming />
         <DevTool />  
         <WebFramework /> 
         <WebAPI />
         <TestFramework />
-  </Stack>
+  </div>
   )
 }
 

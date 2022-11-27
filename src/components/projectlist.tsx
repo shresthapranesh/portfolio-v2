@@ -1,11 +1,38 @@
 import * as React from "react";
-import {Card,List, Typography, Divider} from 'antd';
-import { Stack } from "./Stack/Stack";
+
+const Card = (props:React.ComponentPropsWithRef<"div">) => (
+  <div className="block w-full p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    {props.children}
+  </div>
+)
+
+type ListProps = {
+  items: string[],
+  header: React.ReactNode,
+  renderItem: (item:string) => React.ReactNode
+}
+
+const List = (props:ListProps) => {
+  const {
+    items,
+    header,
+    renderItem
+  } = props
+  return (
+    <div className="p-2">
+      <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white"> {header}</h2>
+     
+      <ul className="space-y-1 list-disc list-inside text-gray-500 dark:text-gray-400">
+        {items.map(item => renderItem(item))}
+      </ul>
+    </div>
+  )
+}
+
 
 const Project1 = () => (
   <>
     <List
-      size="small"
       header={
         <><h4>
         Project Engineer <span> &nbsp;@&nbsp;</span> Holland Quest
@@ -13,7 +40,7 @@ const Project1 = () => (
       </h4>
       <h5> August 2020 - November 2020 </h5></>
       }
-      dataSource={[
+      items={[
         'Developed a game application that generates three-letter code based on response for the questionnaires \
           related to six sections of holland code (https://en.wikipedia.org/wiki/Holland_Codes).', 
         'Developed containerized and scalable NodeJS backend server that communicates with front-end Unity \
@@ -25,9 +52,9 @@ const Project1 = () => (
           required equipment for the completion of project.',
       ]}
       renderItem={item => (
-        <List.Item>
-          <Typography.Text>{item}</Typography.Text>
-        </List.Item>
+        <li key={item}>
+          <p>{item}</p>
+        </li>
       )}
     />
   </>
@@ -36,14 +63,13 @@ const Project1 = () => (
 const Project2 = () => (
   <>
     <List
-      size="small"
       header={
         <><h4>
         Project Member <span> &nbsp;@&nbsp;</span> Software Engineering I
       </h4>
       <h5> January 2020 - May 2020 </h5></>
       }
-      dataSource={[
+      items={[
         
         'Practised Objected-oreinted architecural Software Design using Unified \
         Modeling Language Diagram.',
@@ -54,9 +80,9 @@ const Project2 = () => (
         'Implemented MongoDB database for data storage and JavaFX for UI design.'
       ]}
       renderItem={item => (
-        <List.Item>
-          <Typography.Text>{item}</Typography.Text>
-        </List.Item>
+        <li>
+          <p>{item}</p>
+        </li>
       )}
     />
   </>
@@ -65,14 +91,13 @@ const Project2 = () => (
 const Project3 = () => (
   <>
     <List
-      size="small"
       header={
         <><h4>
         Project Leader <span> &nbsp;@&nbsp;</span> Machine Learning
       </h4>
       <h5> March 2020 - April 2020 </h5></>
       }
-      dataSource={[
+      items={[
         'Analyzed static image using Bradley\'s Adaptive Thresholding algorithm \
         to detect worm and create dataset to train the classifier model',
         'Trained a classNameifier model using the custom made dataset with \
@@ -83,9 +108,9 @@ const Project3 = () => (
         data log in laboratory'
       ]}
       renderItem={item => (
-        <List.Item>
-          <Typography.Text>{item}</Typography.Text>
-        </List.Item>
+        <li>
+          <p>{item}</p>
+        </li>
       )}
     />
   </>
@@ -94,14 +119,13 @@ const Project3 = () => (
 const Project4 = () => (
   <>
     <List
-      size="small"
       header={
         <><h4>
         Project Member <span> &nbsp;@&nbsp;</span> Project Lab 2
       </h4>
       <h5> August 2019 - December 2019 </h5></>
       }
-      dataSource={[
+      items={[
         'Designed and analyzed a system for detecting anomaly is AC powerline \
         for effortless diagnostic by pinpointing the fault location',
         'Programmed a micro-controller for high speed signal sampling with Low \
@@ -111,9 +135,9 @@ const Project4 = () => (
         cloud Integration with MySQL.'
       ]}
       renderItem={item => (
-        <List.Item>
-          <Typography.Text>{item}</Typography.Text>
-        </List.Item>
+        <li>
+          <p>{item}</p>
+        </li>
       )}
     />
   </>
@@ -122,21 +146,20 @@ const Project4 = () => (
 const Project5 = () => (
   <>
     <List
-      size="small"
       header={
         <><h4>
           Project Leader <span> &nbsp;@&nbsp;</span> Project Lab 1
         </h4><h5> January 2019 - May 2019 </h5></>
       }
-      dataSource={[
+      items={[
         'Spearheaded designing and building autonomous rover to deliver mail at designated location.',
         'Enhanced multi-threaded task handler with state-machine build on Verilog',
         'Built and diagnosed amplifier and current limiting circuit based on operational Amplifier.'
       ]}
       renderItem={item => (
-        <List.Item>
-          <Typography.Text>{item}</Typography.Text>
-        </List.Item>
+        <li>
+          <p>{item}</p>
+        </li>
       )}
     />
   </>
@@ -144,23 +167,23 @@ const Project5 = () => (
 
 const ProjectList = () => {
   return (
-    <Stack sx={{paddingTop:10, width:1000}}>
-      <Card bordered={false}>
+    <div className="flex flex-col pt-3 max-w-md">
+      <Card>
         <Project1 />
       </Card>
-      <Card bordered={false}>
+      <Card>
         <Project2 />
       </Card>
-      <Card bordered={false}>
+      <Card>
         <Project3 />
       </Card>
-      <Card bordered={false}>
+      <Card>
         <Project4 />
       </Card>
-      <Card bordered={false}>
+      <Card>
         <Project5 />
       </Card>
-    </Stack>
+    </div>
   );
 }
 

@@ -14,7 +14,6 @@
     "declaration": true,
     "declarationMap": true,
     "jsx": "preserve",
-    "jsxImportSource": "@emotion/react",
     "strict": true,
     "sourceMap": true,
     "rootDir": ".",
@@ -40,7 +39,7 @@
     "isolatedModules": true
   },
   "include": [
-    "."
+    "src"
   ],
   "exclude": [
     "./node_modules"
