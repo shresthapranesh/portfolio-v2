@@ -18,10 +18,10 @@ const Index = () => {
   const smallDevice = useMediaQuery("(max-width: 468px)")
 
   return (
-      <div className="flex flex-row pt-5">
+      <div className="flex flex-col gap-4 sm:flex-row p-5 ">
           <MyImage />
         
-          <div className="flex flex-col justify-center contents-center pl-24">
+          <div className="pl-4 sm:pl-24">
               <p className="text-sm">
                 Hello, there <br />
                 I am <span className="text-lg">Pranesh Shrestha</span>

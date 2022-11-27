@@ -8,7 +8,7 @@ export const NavBarList = React.forwardRef<HTMLUListElement,NavBarListProps>((pr
     return (
         <ul
             ref={ref}
-            className="flex flex-row justify-end pl-0 w-4/5"
+            className="flex flex-row overflow-auto sm:justify-end pl-0 w-4/5"
         >
             {props.children}
         </ul>

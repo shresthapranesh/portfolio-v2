@@ -2,10 +2,10 @@ import * as React from "react";
 import { useMediaQuery } from "../hooks";
 
 const Card = (props:React.ComponentPropsWithRef<"div">&{title:string}) => (
-  <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-    <p>
+  <div className="max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
       {props.title}
-    </p>
+    </h2>
     {props.children}
   </div>
 )
@@ -64,10 +64,8 @@ const TestFramework = () => (
 
 
 const List = () => {
-  const smallDevice = useMediaQuery("(max-width: 468px)")
-  
   return(
-  <div className="flex flex-row justify-center pt-3 gap-3">
+  <div className="flex flex-col flex-nowrap sm:flex-row sm:justify-center pt-3 gap-3">
         <Programming />
         <DevTool />  
         <WebFramework /> 
