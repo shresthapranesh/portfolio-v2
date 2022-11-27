@@ -1,8 +1,7 @@
 import * as React from "react";
-import { useMediaQuery } from "../hooks";
 
 const Card = (props:React.ComponentPropsWithRef<"div">&{title:string}) => (
-  <div className="max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+  <div className="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
     <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
       {props.title}
     </h2>
@@ -15,9 +14,8 @@ const Programming = () => (
         <p>TypeScript</p>
         <p>Python</p>
         <p>C/C++</p>
-        <p>HTML</p>
         <p>Java</p>
-        <p>C#</p>
+        <p>Rust</p>
         <p>SQL</p>
       </Card>
 );
@@ -34,12 +32,11 @@ const DevTool = () => (
 );
 
 const WebFramework = () => (
-      <Card title="Web Frameworks">
+      <Card title="Library & Frameworks">
         <p>React</p>
-        <p>Redux</p>
         <p>Express.js</p>
         <p>Next.js</p>
-        <p>Angular</p>
+        <p>Webpack</p>
       </Card>
 );
 
@@ -58,6 +55,7 @@ const TestFramework = () => (
         <p>Junit</p>
         <p>Google Test</p>
         <p>Mocha</p>
+        <p>Cypress E2E</p>
       </Card>
 );
 
@@ -65,7 +63,7 @@ const TestFramework = () => (
 
 const List = () => {
   return(
-  <div className="flex flex-col flex-nowrap sm:flex-row sm:justify-center pt-3 gap-3">
+  <div className="flex flex-col p-3 gap-3 w-full justify-center sm:justify-items-center sm:flex-row  ">
         <Programming />
         <DevTool />  
         <WebFramework /> 

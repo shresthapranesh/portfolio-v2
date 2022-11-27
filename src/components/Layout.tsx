@@ -18,7 +18,7 @@ const Page = (props:PageProps) => {
           </Head>
         <Navigationbar />
 
-        <div className="flex-grow overflow-auto">{props.children} </div>
+        <div className="flex-grow overflow-auto w-full">{props.children} </div>
 
         <div className="flex flex-row justify-center items-center">
                 <h1>Links</h1>

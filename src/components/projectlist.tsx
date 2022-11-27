@@ -1,7 +1,7 @@
 import * as React from "react";
 
 const Card = (props:React.ComponentPropsWithRef<"div">) => (
-  <div className="block w-full p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+  <div className="w-[90%] sm:w-3/5 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
     {props.children}
   </div>
 )
@@ -167,7 +167,7 @@ const Project5 = () => (
 
 const ProjectList = () => {
   return (
-    <div className="flex flex-col pt-3 max-w-md">
+    <div className="flex flex-col w-full pt-3 items-center">
       <Card>
         <Project1 />
       </Card>

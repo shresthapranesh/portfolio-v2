@@ -8,7 +8,7 @@ export const NavBar = React.forwardRef<HTMLCanvasElement,NavBarProps>((props,ref
     return (
         <nav
             ref={ref}
-            className="w-full flex flex-col"
+            className="w-full flex flex-col border-b-[1px] border-slate-300/10"
         >
             {props.children}
         </nav>
