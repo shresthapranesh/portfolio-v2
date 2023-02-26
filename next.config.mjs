@@ -6,7 +6,7 @@
  * @param {T} config - A generic parameter that flows through to the return type
  * @constraint {{import('next').NextConfig}}
  */
- function defineNextConfig(config) {
+function defineNextConfig(config) {
   return config;
 }
 
@@ -21,7 +21,7 @@ export default defineNextConfig({
   images: {
     domains: ['img.icons8.com'],
   },
-  typescript: {
-    ignoreBuildErrors: true
-  }
+  experimental: {
+    appDir: true,
+  },
 });

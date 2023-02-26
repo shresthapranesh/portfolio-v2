@@ -1,5 +1,7 @@
-import * as React from "react";
-import {NavBar,NavBarList,NavItem} from './NavBar'
+import React from "react";
+import { NavBar } from "./NavBar/NavBar";
+import { NavBarList } from "./NavBar/NavBarList";
+import { NavItem } from "./NavBar/NavBarItem";
 
 export default function Navigationbar() {
   return (

@@ -1,9 +1,7 @@
-import * as React from 'react'
-import Image from "next/image"
+import React from 'react'
+import Image from 'next/image'
 
-import Layout from '../components/Layout'
-
-const Resume = () => {
+export default function Page(){
     return (
         <div className="flex justify-center">
             <Image
@@ -15,5 +13,3 @@ const Resume = () => {
         </div>
     )
 }
-
-export default Resume;

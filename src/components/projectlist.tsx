@@ -20,7 +20,7 @@ const List = (props:ListProps) => {
   } = props
   return (
     <div className="p-2">
-      <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white"> {header}</h2>
+      <div className="mb-2 text-lg font-semibold text-gray-900 dark:text-white"> {header}</div>
      
       <ul className="space-y-1 list-disc list-inside text-gray-500 dark:text-gray-400">
         {items.map(item => renderItem(item))}
@@ -34,7 +34,8 @@ const Project1 = () => (
   <>
     <List
       header={
-        <><h4>
+        <>
+      <h4>
         Project Engineer <span> &nbsp;@&nbsp;</span> Holland Quest
         Lab
       </h4>
