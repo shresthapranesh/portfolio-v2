@@ -5,17 +5,17 @@ Feel free add comments or copy/paste code.
 
 1. Requirements
     
-        Node 12+, yarn
+        Node 12+, pnpm
 
 2. Install all node modules.
     
-        yarn install
+        pnpm install
 
 3. To start Dev Server
         
-        yarn dev
+        pnpm dev
 
 3. To Start Production Build Server
     
-        yarn build
-        yarn start
+        pnpm build
+        pnpm start
