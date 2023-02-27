@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/globals.css'
 import Head from "next/head";
 import Navigationbar from '../components/NavigationBar';
-import { SocialButton } from '../components/SocialButton';
+import { SocialButton } from '../components/SocialButton/SocialButton';
 
 export default function RootLayout({
     children
@@ -15,9 +15,10 @@ export default function RootLayout({
           <title>Pranesh Shrestha</title>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>Pranesh Shrestha | Portfolio</title>
         </Head>
         
-        <body className="container h-screen m-auto dark:bg-slate-800 dark:text-white">
+        <body className="container h-screen m-auto dark:bg-slate-900 dark:text-white">
             <Navigationbar />
             <main className="flex-grow overflow-auto w-full">
                 {children}
@@ -34,16 +35,3 @@ export default function RootLayout({
     </html>
     )
 }
-
-// if("serviceWorker" in navigator) {
-//     window.addEventListener("load", function () {
-//      navigator.serviceWorker.register("js/sw.js").then(
-//         function (registration) {
-//           console.log("Service Worker registration successful with scope: ", registration.scope);
-//         },
-//         function (err) {
-//           console.log("Service Worker registration failed: ", err);
-//         }
-//       );
-//     });
-//   }

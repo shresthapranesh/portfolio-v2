@@ -13,17 +13,18 @@ export default function Page(){
     const [response,setResponse] = React.useState('')
     const handleSubmit = async (e:React.FormEvent) => {  
         e.preventDefault()
-        const response = await fetch('/api/contactForm',{
+        const response = await fetch('/api/contact',{
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(state)
           })
+        const responseJson = await response.json()
+        setResponse(responseJson.message)
         setState({
             email:'', subject:'',message:''   
         })
-        setResponse(await response.text())
     }
     const handleChange = (e:React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>, field:string) => {
         setState((prev) => ({...prev,[field]:e.target.value}))
