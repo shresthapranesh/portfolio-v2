@@ -9,21 +9,24 @@ const Card = (props:React.ComponentPropsWithRef<"div">) => (
 type ListProps = {
   items: string[],
   header: React.ReactNode,
-  renderItem: (item:string) => React.ReactNode
+  renderItem?: (item:string, idx:number) => React.ReactNode
 }
 
 const List = (props:ListProps) => {
   const {
     items,
     header,
-    renderItem
   } = props
   return (
     <div className="p-2">
-      <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white"> {header}</h2>
+      <div className="mb-2 text-lg font-semibold text-gray-900 dark:text-white"> {header}</div>
      
       <ul className="space-y-1 list-disc list-inside text-gray-500 dark:text-gray-400">
-        {items.map(item => renderItem(item))}
+        {items.map((item,idx) => (
+          <li key={idx}>
+            {item}
+          </li>
+        ))}
       </ul>
     </div>
   )
@@ -34,7 +37,8 @@ const Project1 = () => (
   <>
     <List
       header={
-        <><h4>
+        <>
+      <h4>
         Project Engineer <span> &nbsp;@&nbsp;</span> Holland Quest
         Lab
       </h4>
@@ -51,11 +55,6 @@ const Project1 = () => (
         'Presented weekly work update through presentations which included all necessary budget expenditure and \
           required equipment for the completion of project.',
       ]}
-      renderItem={item => (
-        <li key={item}>
-          <p>{item}</p>
-        </li>
-      )}
     />
   </>
 );
@@ -79,11 +78,6 @@ const Project2 = () => (
 
         'Implemented MongoDB database for data storage and JavaFX for UI design.'
       ]}
-      renderItem={item => (
-        <li>
-          <p>{item}</p>
-        </li>
-      )}
     />
   </>
 );
@@ -107,11 +101,6 @@ const Project3 = () => (
         'Implemented the model in live feed to automate worm tracking to create \
         data log in laboratory'
       ]}
-      renderItem={item => (
-        <li>
-          <p>{item}</p>
-        </li>
-      )}
     />
   </>
 );
@@ -134,11 +123,6 @@ const Project4 = () => (
         transmission through USB and collaborated in coding and debugging for \
         cloud Integration with MySQL.'
       ]}
-      renderItem={item => (
-        <li>
-          <p>{item}</p>
-        </li>
-      )}
     />
   </>
 );
@@ -156,18 +140,13 @@ const Project5 = () => (
         'Enhanced multi-threaded task handler with state-machine build on Verilog',
         'Built and diagnosed amplifier and current limiting circuit based on operational Amplifier.'
       ]}
-      renderItem={item => (
-        <li>
-          <p>{item}</p>
-        </li>
-      )}
     />
   </>
 );
 
 const ProjectList = () => {
   return (
-    <div className="flex flex-col w-full pt-3 items-center">
+    <div className="flex flex-col gap-2 w-full pt-3 items-center">
       <Card>
         <Project1 />
       </Card>
