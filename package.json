@@ -7,7 +7,7 @@
     "lint": "next lint",
     "start": "next start -p 8080",
     "build": "next build",
-    "gcp-build": "pnpm build",
+    "gcp-build": "yarn build",
     "deploy": "gcloud config set project praneshshrestha-portfolio && gcloud app deploy app.yaml"
   },
   "author": "Pranesh Shrestha",
