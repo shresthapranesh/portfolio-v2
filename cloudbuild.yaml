@@ -1,9 +1,9 @@
 steps:
 - name: node
-  entrypoint: pnpm
+  entrypoint: yarn
   args: ['install']
 - name: node
-  entrypoint: pnpm
+  entrypoint: yarn
   args: ['build']
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy"]
