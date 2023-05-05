@@ -1,7 +1,7 @@
 import * as React from "react";
 
 const Card = (props:React.ComponentPropsWithRef<"div">&{title:string}) => (
-  <div className="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+  <div className="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-zinc-950 dark:border-gray-700 dark:hover:border-zinc-400">
     <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
       {props.title}
     </h2>

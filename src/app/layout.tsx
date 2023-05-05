@@ -18,12 +18,12 @@ export default function RootLayout({
           <title>Pranesh Shrestha | Portfolio</title>
         </Head>
         
-        <body className="container h-screen m-auto dark:bg-slate-900 dark:text-white">
+        <body className="container h-screen m-auto dark:bg-zinc-950 dark:text-white">
             <Navigationbar />
-            <main className="flex-grow overflow-auto w-full">
+            <main className="flex-grow overflow-auto w-full dark:bg-zinc-900">
                 {children}
             </main>
-            <footer className="flex flex-row justify-center items-center fixed bottom-0 left-1/2">
+            <footer className="border-t-[1px] border-zinc-300/10 flex flex-row justify-center items-center fixed bottom-0 left-1/2">
                 <h1>Links</h1>
                 <SocialButton link="https://www.github.com/shresthapranesh" img="https://img.icons8.com/color/32/000000/github--v1.png" />
                 <SocialButton link="https://www.linkedin.com/in/praneshshrestha" img="https://img.icons8.com/color/32/000000/linkedin.png" />

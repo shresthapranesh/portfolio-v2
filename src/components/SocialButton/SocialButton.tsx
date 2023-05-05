@@ -13,7 +13,7 @@ export const SocialButton:React.FC<SocialButtonProps> = (props) => {
             href={props.link}
         >
             <Image
-                className="hover:translate-y-1"
+                className="hover:tranzinc-y-1"
                 height={32}
                 width={32}
                 src={props.img}

@@ -5,7 +5,7 @@ Feel free add comments or copy/paste code.
 
 1. Requirements
     
-        Node 12+, pnpm
+        Node 16+, pnpm
 
 2. Install all node modules.
     
