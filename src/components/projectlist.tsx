@@ -1,7 +1,7 @@
 import * as React from "react";
 
 const Card = (props:React.ComponentPropsWithRef<"div">) => (
-  <div className="w-[90%] sm:w-3/5 p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+  <div className="w-[90%] sm:w-3/5 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-zinc-950 dark:border-zinc-700 dark:hover:border-zinc-400">
     {props.children}
   </div>
 )
@@ -19,7 +19,7 @@ const List = (props:ListProps) => {
   } = props
   return (
     <div className="p-2">
-      <div className="mb-2 text-lg font-semibold text-gray-900 dark:text-white"> {header}</div>
+      <div className="mb-2 text-lg font-semibold text-gray-900 dark:text-zinc-300 flex justify-between"> {header}</div>
      
       <ul className="space-y-1 list-disc list-inside text-gray-500 dark:text-gray-400">
         {items.map((item,idx) => (
