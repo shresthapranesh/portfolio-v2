@@ -9,10 +9,7 @@ const nextConfig = {
   },
   images: {
     domains: ['img.icons8.com'],
-  },
-  experimental: {
-    appDir: true,
-  },
+  }
 };
 
 export default nextConfig
