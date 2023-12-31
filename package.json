@@ -6,29 +6,27 @@
     "dev": "next dev --turbo",
     "lint": "next lint",
     "start": "next start -p 8080",
-    "build": "next build",
-    "gcp-build": "pnpm build",
-    "deploy": "gcloud config set project praneshshrestha-portfolio && gcloud app deploy app.yaml"
+    "build": "next build"
   },
   "author": "Pranesh Shrestha",
   "license": "ISC",
   "dependencies": {
     "@react-spring/web": "^9.7.3",
-    "next": "^13.5.6",
+    "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sharp": "^0.32.6",
+    "sharp": "^0.33.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
-    "@types/node": "^20.8.7",
-    "@types/react": "^18.2.30",
-    "@types/react-dom": "^18.2.14",
-    "eslint": "8.51.0",
-    "eslint-config-next": "13.5.6",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.3",
-    "typescript": "^5.2.2"
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3"
   }
 }
