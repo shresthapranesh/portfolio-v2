@@ -13,7 +13,7 @@
     ],
     "declaration": true,
     "declarationMap": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "strict": true,
     "sourceMap": true,
     "rootDir": ".",
@@ -45,7 +45,8 @@
   },
   "include": [
     "src",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "./node_modules"
