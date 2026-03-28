@@ -26,7 +26,7 @@
     "skipLibCheck": true,
     "stripInternal": true,
     /* Module Resolution Options */
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
