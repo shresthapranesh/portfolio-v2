@@ -2,20 +2,21 @@ import * as React from 'react'
 import Image from 'next/image'
 
 type SocialButtonProps = {
-    link:string,
-    img:string,
+    link: string,
+    img: string,
 }
 
-export const SocialButton:React.FC<SocialButtonProps> = (props) => {
+export const SocialButton: React.FC<SocialButtonProps> = (props) => {
     return (
         <a
-            className="cursor-pointer no-underline transition-all p-2"
+            className="cursor-pointer no-underline transition-all duration-200 p-2 rounded-lg hover:bg-zinc-800 hover:scale-110 inline-flex"
             href={props.link}
+            target="_blank"
+            rel="noopener noreferrer"
         >
             <Image
-                className="hover:tranzinc-y-1"
-                height={32}
-                width={32}
+                height={28}
+                width={28}
                 src={props.img}
                 alt=""
             />

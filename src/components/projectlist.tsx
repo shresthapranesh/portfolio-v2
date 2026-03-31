@@ -1,169 +1,116 @@
 import * as React from "react";
 
-const Card = (props:React.ComponentPropsWithRef<"div">) => (
-  <div className="w-[90%] sm:w-3/5 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-zinc-950 dark:border-zinc-700 dark:hover:border-zinc-400">
-    {props.children}
-  </div>
-)
+type Role = 'leader' | 'member' | 'engineer';
 
-type ListProps = {
-  items: string[],
-  header: React.ReactNode,
-  renderItem?: (item:string, idx:number) => React.ReactNode
-}
+const roleStyles: Record<Role, string> = {
+  leader:   'bg-green-500/10 text-green-400 border-green-500/30',
+  member:   'bg-blue-500/10 text-blue-400 border-blue-500/30',
+  engineer: 'bg-purple-500/10 text-purple-400 border-purple-500/30',
+};
 
-const List = (props:ListProps) => {
-  const {
-    items,
-    header,
-  } = props
-  return (
-    <div className="p-2">
-      <div className="mb-2 text-lg font-semibold text-gray-900 dark:text-zinc-300 flex justify-between"> {header}</div>
-     
-      <ul className="space-y-1 list-disc list-inside text-gray-500 dark:text-gray-400">
-        {items.map((item,idx) => (
-          <li key={idx}>
-            {item}
-          </li>
-        ))}
-      </ul>
+const RoleBadge = ({ role, label }: { role: Role; label: string }) => (
+  <span className={`px-2.5 py-0.5 text-xs rounded-full border font-medium ${roleStyles[role]}`}>
+    {label}
+  </span>
+);
+
+type ProjectCardProps = {
+  role: Role;
+  title: string;
+  org: string;
+  date: string;
+  items: string[];
+};
+
+const ProjectCard = ({ role, title, org, date, items }: ProjectCardProps) => (
+  <div className="w-[90%] sm:w-3/5 p-6 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/5 transition-all duration-300 group">
+    <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
+      <div className="flex flex-col gap-1">
+        <RoleBadge role={role} label={title} />
+        <h3 className="text-base font-semibold text-white group-hover:text-purple-300 transition-colors duration-200">
+          {org}
+        </h3>
+      </div>
+      <span className="text-xs text-zinc-500 whitespace-nowrap mt-1">{date}</span>
     </div>
-  )
-}
-
-
-const Project1 = () => (
-  <>
-    <List
-      header={
-        <>
-      <h4>
-        Project Engineer <span> &nbsp;@&nbsp;</span> Holland Quest
-        Lab
-      </h4>
-      <h5> August 2020 - November 2020 </h5></>
-      }
-      items={[
-        'Developed a game application that generates three-letter code based on response for the questionnaires \
-          related to six sections of holland code (https://en.wikipedia.org/wiki/Holland_Codes).', 
-        'Developed containerized and scalable NodeJS backend server that communicates with front-end Unity \
-          application using RESTful API’s and Stores the user response in MySQL Database',     
-        'Created User account handling APIs for secure login, account reset and JWT based authentication.',
-        'Designed SQL Schema with modern Data Modeling practices and implemented unit test with Jest Framework.',
-        'Deployed the multiple instances of server in GCP for handling concurrent connection.',
-        'Presented weekly work update through presentations which included all necessary budget expenditure and \
-          required equipment for the completion of project.',
-      ]}
-    />
-  </>
-);
-
-const Project2 = () => (
-  <>
-    <List
-      header={
-        <><h4>
-        Project Member <span> &nbsp;@&nbsp;</span> Software Engineering I
-      </h4>
-      <h5> January 2020 - May 2020 </h5></>
-      }
-      items={[
-        
-        'Practised Objected-oreinted architecural Software Design using Unified \
-        Modeling Language Diagram.',
-
-        'Programmed using Modular Programming methologies for easy large scale \
-        integration and error handling.',
-
-        'Implemented MongoDB database for data storage and JavaFX for UI design.'
-      ]}
-    />
-  </>
-);
-
-const Project3 = () => (
-  <>
-    <List
-      header={
-        <><h4>
-        Project Leader <span> &nbsp;@&nbsp;</span> Machine Learning
-      </h4>
-      <h5> March 2020 - April 2020 </h5></>
-      }
-      items={[
-        'Analyzed static image using Bradley\'s Adaptive Thresholding algorithm \
-        to detect worm and create dataset to train the classifier model',
-        'Trained a classNameifier model using the custom made dataset with \
-        hyperparameter adjustment and regularization',
-        'Recorded the accuracy of the model with different combination of \
-        training data and optimization techinique',
-        'Implemented the model in live feed to automate worm tracking to create \
-        data log in laboratory'
-      ]}
-    />
-  </>
-);
-
-const Project4 = () => (
-  <>
-    <List
-      header={
-        <><h4>
-        Project Member <span> &nbsp;@&nbsp;</span> Project Lab 2
-      </h4>
-      <h5> August 2019 - December 2019 </h5></>
-      }
-      items={[
-        'Designed and analyzed a system for detecting anomaly is AC powerline \
-        for effortless diagnostic by pinpointing the fault location',
-        'Programmed a micro-controller for high speed signal sampling with Low \
-        Signal to Noise ratio',
-        'Resolved issues related to high speed sampling, low latency Data \
-        transmission through USB and collaborated in coding and debugging for \
-        cloud Integration with MySQL.'
-      ]}
-    />
-  </>
-);
-
-const Project5 = () => (
-  <>
-    <List
-      header={
-        <><h4>
-          Project Leader <span> &nbsp;@&nbsp;</span> Project Lab 1
-        </h4><h5> January 2019 - May 2019 </h5></>
-      }
-      items={[
-        'Spearheaded designing and building autonomous rover to deliver mail at designated location.',
-        'Enhanced multi-threaded task handler with state-machine build on Verilog',
-        'Built and diagnosed amplifier and current limiting circuit based on operational Amplifier.'
-      ]}
-    />
-  </>
+    <ul className="space-y-2">
+      {items.map((item, idx) => (
+        <li key={idx} className="text-sm text-zinc-400 flex gap-2">
+          <span className="text-purple-500 mt-0.5 shrink-0">›</span>
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
 );
 
 const ProjectList = () => {
   return (
-    <div className="flex flex-col gap-2 w-full pt-3 items-center">
-      <Card>
-        <Project1 />
-      </Card>
-      <Card>
-        <Project2 />
-      </Card>
-      <Card>
-        <Project3 />
-      </Card>
-      <Card>
-        <Project4 />
-      </Card>
-      <Card>
-        <Project5 />
-      </Card>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold text-white mb-6">Projects</h1>
+      <div className="flex flex-col gap-4 items-center w-full">
+        <ProjectCard
+          role="engineer"
+          title="Project Engineer"
+          org="Holland Quest Lab"
+          date="Aug 2020 – Nov 2020"
+          items={[
+            'Developed a game application that generates a three-letter Holland Code based on questionnaire responses across six sections.',
+            'Built a containerized, scalable Node.js backend communicating with a Unity front-end via RESTful APIs, storing responses in MySQL.',
+            'Created user account APIs for secure login, account reset, and JWT-based authentication.',
+            'Designed SQL schema with modern data modeling practices and implemented unit tests with Jest.',
+            'Deployed multiple server instances on GCP for concurrent connection handling.',
+            'Delivered weekly progress presentations covering budget expenditure and equipment requirements.',
+          ]}
+        />
+        <ProjectCard
+          role="member"
+          title="Project Member"
+          org="Software Engineering I"
+          date="Jan 2020 – May 2020"
+          items={[
+            'Practiced object-oriented architectural software design using UML diagrams.',
+            'Applied modular programming methodologies for large-scale integration and error handling.',
+            'Implemented MongoDB for data storage and JavaFX for UI design.',
+          ]}
+        />
+        <ProjectCard
+          role="leader"
+          title="Project Leader"
+          org="Machine Learning"
+          date="Mar 2020 – Apr 2020"
+          items={[
+            "Analyzed static images using Bradley's Adaptive Thresholding algorithm to detect worms and build a training dataset.",
+            'Trained a classifier model with hyperparameter tuning and regularization on the custom dataset.',
+            'Recorded model accuracy across different training data combinations and optimization techniques.',
+            'Deployed the model on a live feed to automate worm tracking and generate laboratory data logs.',
+          ]}
+        />
+        <ProjectCard
+          role="member"
+          title="Project Member"
+          org="Project Lab 2 — AC Powerline Anomaly Detection"
+          date="Aug 2019 – Dec 2019"
+          items={[
+            'Designed and analyzed a fault-detection system for AC powerlines, pinpointing fault locations for easy diagnostics.',
+            'Programmed a microcontroller for high-speed signal sampling with a low signal-to-noise ratio.',
+            'Resolved high-speed sampling and low-latency USB data transmission issues; assisted with cloud-MySQL integration.',
+          ]}
+        />
+        <ProjectCard
+          role="leader"
+          title="Project Leader"
+          org="Project Lab 1 — Autonomous Rover"
+          date="Jan 2019 – May 2019"
+          items={[
+            'Spearheaded design and build of an autonomous rover for mail delivery to designated locations.',
+            'Enhanced a multi-threaded task handler with a state machine built in Verilog.',
+            'Built and diagnosed amplifier and current-limiting circuits based on operational amplifiers.',
+          ]}
+        />
+      </div>
     </div>
   );
-}
+};
 
 export default ProjectList;
