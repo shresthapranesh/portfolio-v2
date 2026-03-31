@@ -1,1 +1,59 @@
 @import 'tailwindcss';
+
+/* ── Hero page animations ─────────────────────────────────── */
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes heroSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes heroGradientShift {
+  0%,100% { background-position: 0%   50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+@keyframes heroBlink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0; }
+}
+
+@keyframes heroGlowPulse {
+  0%,100% { opacity: 0.6; }
+  50%     { opacity: 0.35; }
+}
+
+.hero-fade-in {
+  animation: heroFadeIn 0.7s ease-out forwards;
+}
+
+.hero-slide-up {
+  animation: heroSlideUp 0.6s ease-out forwards;
+}
+
+.hero-slide-up-delay {
+  opacity: 0;
+  animation: heroSlideUp 0.6s ease-out 0.2s forwards;
+}
+
+.hero-gradient-text {
+  background: linear-gradient(135deg, #a855f7, #ec4899, #3b82f6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: heroGradientShift 5s ease infinite;
+}
+
+.hero-cursor {
+  animation: heroBlink 1s step-end infinite;
+  margin-left: 1px;
+}
+
+.hero-glow-pulse {
+  animation: heroGlowPulse 3s ease-in-out infinite;
+}
