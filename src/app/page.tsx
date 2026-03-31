@@ -89,7 +89,7 @@ export default function Page() {
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-500 opacity-60 blur-sm group-hover:opacity-90 transition-opacity duration-500 hero-glow-pulse" />
             <div className="relative rounded-2xl overflow-hidden border border-zinc-700/50">
               <Image
-                src="/images/2.jpg"
+                src="/images/profile.jpg"
                 alt="mypic"
                 height={500}
                 width={500}
