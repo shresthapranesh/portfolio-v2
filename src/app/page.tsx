@@ -55,10 +55,10 @@ export default function Page() {
           {/* CTA buttons */}
           <div className="flex flex-wrap gap-4 mb-8">
             <Link
-              href="/projects"
+              href="/experience"
               className="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold transition-all duration-300 hover:from-purple-500 hover:to-blue-500 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30"
             >
-              View Projects
+              View Experience
             </Link>
             <Link
               href="/contact"
