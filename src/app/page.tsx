@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Image from "next/image"
 import Link from "next/link"
+import List from '../components/List'
 
 function useTypewriter(text: string, speed = 40) {
   const [displayed, setDisplayed] = useState('')
@@ -24,10 +25,10 @@ export default function Page() {
   const subtitle = useTypewriter('Software Engineer at Meta. Welcome to my portfolio.')
 
   return (
-    <section className="relative min-h-full overflow-hidden">
-      {/* Radial glow background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(168,85,247,0.15),_transparent_60%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(59,130,246,0.10),_transparent_60%)] pointer-events-none" />
+    <section className="relative">
+      {/* Radial glow background — fixed so it always fills the viewport */}
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(168,85,247,0.15),_transparent_60%)] pointer-events-none -z-10" />
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(59,130,246,0.10),_transparent_60%)] pointer-events-none -z-10" />
 
       <div className="relative grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 items-center">
 
@@ -99,6 +100,14 @@ export default function Page() {
         </div>
 
       </div>
+
+      {/* Skills section */}
+      <div className="relative max-w-screen-xl px-4 pb-12 mx-auto">
+        <div className="border-t border-zinc-800 pt-10">
+          <List />
+        </div>
+      </div>
+
     </section>
   )
 }
