@@ -6,6 +6,7 @@ import classNames from "../util/classNames";
 type NavItemProps = {
     children: React.ReactNode,
     routes: string
+    onClick?: () => void
 }
 
 const NavItem = (props: NavItemProps) => {
@@ -14,14 +15,15 @@ const NavItem = (props: NavItemProps) => {
     return (
         <Link
             href={props.routes}
+            onClick={props.onClick}
             className={classNames(
                 "relative text-sm px-4 py-5 inline-block transition-colors duration-200",
-                isActive ? "text-white" : "text-zinc-500 hover:text-zinc-200"
+                isActive ? "text-[#ededed]" : "text-[#444] hover:text-[#888]"
             )}
         >
             {props.children}
             {isActive && (
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 h-0.5 rounded-full bg-gradient-to-r from-purple-500 to-blue-500" />
+                <span className="absolute bottom-0 left-0 w-full h-px bg-[#f59e0b]" />
             )}
         </Link>
     )

@@ -31,52 +31,51 @@ export default function Page() {
 
     if (response !== '')
         return (
-            <section className="relative min-h-full flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(168,85,247,0.08),_transparent_70%)] pointer-events-none" />
+            <section className="min-h-full flex items-center justify-center">
                 <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-2xl mx-auto mb-4">✓</div>
-                    <h2 className="text-3xl font-bold text-white">{response}</h2>
+                    <div className="w-16 h-16 border border-[rgba(245,158,11,0.3)] flex items-center justify-center text-2xl text-[#f59e0b] mx-auto mb-4">✓</div>
+                    <h2 className="text-3xl font-bold text-[#ededed]">{response}</h2>
                 </div>
             </section>
         )
 
     return (
-        <section className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(168,85,247,0.08),_transparent_60%)] pointer-events-none" />
-            <div className="relative py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                <h2 className="mb-2 text-4xl tracking-tight font-extrabold text-center text-white">Get In Touch</h2>
-                <p className="text-center text-zinc-500 mb-8 text-sm">Have a project in mind or just want to say hi?</p>
+        <section>
+            <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+                <p className="font-mono text-xs text-[#444] tracking-widest uppercase mb-2 text-center">Contact</p>
+                <h2 className="mb-2 text-4xl tracking-tight font-extrabold text-center text-[#ededed]">Get In Touch</h2>
+                <p className="text-center text-[#888] mb-8 text-sm">Have a project in mind or just want to say hi?</p>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-zinc-400">Your email</label>
+                        <label htmlFor="email" className="block mb-2 text-sm font-mono text-[#888]">Your email</label>
                         <input
                             type="email" id="email" value={state.email}
                             onChange={(e) => handleChange(e, 'email')}
-                            className="w-full p-3 rounded-lg bg-zinc-900 border border-zinc-700 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors duration-200"
+                            className="w-full p-3 bg-[#141414] border border-[#1f1f1f] text-[#ededed] placeholder-[#444] text-sm focus:outline-none focus:border-[#f59e0b] transition-colors duration-200"
                             placeholder="name@email.com" required
                         />
                     </div>
                     <div>
-                        <label htmlFor="subject" className="block mb-2 text-sm font-medium text-zinc-400">Subject</label>
+                        <label htmlFor="subject" className="block mb-2 text-sm font-mono text-[#888]">Subject</label>
                         <input
                             type="text" id="subject" value={state.subject}
                             onChange={(e) => handleChange(e, 'subject')}
-                            className="w-full p-3 rounded-lg bg-zinc-900 border border-zinc-700 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors duration-200"
+                            className="w-full p-3 bg-[#141414] border border-[#1f1f1f] text-[#ededed] placeholder-[#444] text-sm focus:outline-none focus:border-[#f59e0b] transition-colors duration-200"
                             placeholder="What's this about?" required
                         />
                     </div>
                     <div>
-                        <label htmlFor="message" className="block mb-2 text-sm font-medium text-zinc-400">Message</label>
+                        <label htmlFor="message" className="block mb-2 text-sm font-mono text-[#888]">Message</label>
                         <textarea
                             id="message" rows={6} value={state.message}
                             onChange={(e) => handleChange(e, 'message')}
-                            className="w-full p-3 rounded-lg bg-zinc-900 border border-zinc-700 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors duration-200 resize-none"
+                            className="w-full p-3 bg-[#141414] border border-[#1f1f1f] text-[#ededed] placeholder-[#444] text-sm focus:outline-none focus:border-[#f59e0b] transition-colors duration-200 resize-none"
                             placeholder="Tell me what's on your mind..."
                         />
                     </div>
                     <button
                         type="submit"
-                        className="w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold transition-all duration-300 hover:from-purple-500 hover:to-blue-500 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30"
+                        className="w-full sm:w-auto px-8 py-3 border border-[#f59e0b] text-[#f59e0b] font-mono text-sm tracking-wide transition-colors duration-200 hover:bg-[rgba(245,158,11,0.1)]"
                     >
                         Send Message
                     </button>

@@ -2,6 +2,21 @@ import React from 'react'
 import '../styles/globals.css'
 import Head from "next/head";
 import Navigationbar from '../components/NavigationBar';
+import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
+
+const spaceGrotesk = Space_Grotesk({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    variable: '--font-space-grotesk',
+    display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+    subsets: ['latin'],
+    weight: ['400', '500'],
+    variable: '--font-jetbrains-mono',
+    display: 'swap',
+})
 
 export default function RootLayout({
     children
@@ -9,22 +24,22 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-    <html>
+    <html className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
         <Head>
           <title>Pranesh Shrestha</title>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>Pranesh Shrestha | Portfolio</title>
         </Head>
-        
-        <body className="min-h-screen dark:bg-zinc-950 dark:text-white flex flex-col">
+
+        <body className="min-h-screen bg-[#0c0c0c] text-[#ededed] font-sans flex flex-col">
             <Navigationbar />
             <main className="flex-grow w-full">
                 {children}
             </main>
-            <footer className="border-t border-zinc-300/10 w-full bg-zinc-950/80">
+            <footer className="border-t border-[#1f1f1f] w-full bg-[#0c0c0c]/90">
                 <div className="max-w-screen-xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <p className="text-xs text-zinc-600">
+                    <p className="text-xs text-[#444]">
                         © {new Date().getFullYear()} Pranesh Shrestha. All rights reserved.
                     </p>
                     <div className="flex items-center gap-1">
@@ -61,7 +76,7 @@ export default function RootLayout({
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={label}
-                                className="text-zinc-500 hover:text-white transition-all duration-200 p-2 rounded-lg hover:bg-zinc-800 hover:scale-110"
+                                className="text-[#444] hover:text-[#ededed] transition-all duration-200 p-2 hover:bg-[#1f1f1f]"
                             >
                                 {svg}
                             </a>
