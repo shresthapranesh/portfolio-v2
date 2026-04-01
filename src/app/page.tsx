@@ -1,113 +1,94 @@
-'use client'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Image from "next/image"
 import Link from "next/link"
 import List from '../components/List'
 
-function useTypewriter(text: string, speed = 40) {
-  const [displayed, setDisplayed] = useState('')
-  useEffect(() => {
-    setDisplayed('')
-    let i = 0
-    const interval = setInterval(() => {
-      setDisplayed(text.slice(0, i + 1))
-      i++
-      if (i >= text.length) clearInterval(interval)
-    }, speed)
-    return () => clearInterval(interval)
-  }, [text, speed])
-  return displayed
-}
-
 const TECH = ['React', 'Next.js', 'TypeScript', 'Python', 'GraphQL']
 
 export default function Page() {
-  const subtitle = useTypewriter('Software Engineer at Meta. Welcome to my portfolio.')
-
   return (
-    <section className="relative">
-      {/* Radial glow background — fixed so it always fills the viewport */}
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(168,85,247,0.15),_transparent_60%)] pointer-events-none -z-10" />
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(59,130,246,0.10),_transparent_60%)] pointer-events-none -z-10" />
+    <section>
+      <div className="max-w-screen-xl px-4 pt-16 pb-8 mx-auto">
 
-      <div className="relative grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 items-center">
+        {/* Metadata row — monospace, muted */}
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-1 mb-12 font-mono text-xs text-[#777] tracking-widest uppercase hero-fade-in">
+          <span>Software Engineer</span>
+          <span className="text-[#444]">—</span>
+          <span>Meta · Menlo Park, CA</span>
+          <span className="text-[#444]">—</span>
+          <span>2024 – Present</span>
+        </div>
 
-        {/* Left: Text content */}
-        <div className="mr-auto place-self-center lg:col-span-7 hero-fade-in">
-
-          {/* Availability badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-sm">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Available for new opportunities
-          </div>
-
-          <h1 className="max-w-2xl mb-2 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white hero-slide-up">
-            Hi There. 👋
-          </h1>
-          <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl hero-gradient-text hero-slide-up-delay">
-            I am Pranesh Shrestha
+        {/* Name + photo row */}
+        <div className="flex items-start justify-between gap-8">
+          <h1
+            className="font-bold leading-[0.9] tracking-tight text-[#ededed] hero-name-reveal"
+            style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)' }}
+          >
+            Pranesh<br />Shrestha
           </h1>
 
-          <p className="max-w-2xl mb-8 font-light text-gray-500 lg:mb-10 md:text-lg lg:text-xl dark:text-gray-400 min-h-[60px]">
-            {subtitle}
-            <span className="hero-cursor">|</span>
-          </p>
-
-          {/* CTA buttons */}
-          <div className="flex flex-wrap gap-4 mb-8">
-            <Link
-              href="/experience"
-              className="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold transition-all duration-300 hover:from-purple-500 hover:to-blue-500 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30"
-            >
-              View Experience
-            </Link>
-            <Link
-              href="/contact"
-              className="px-6 py-3 rounded-lg border border-zinc-600 text-zinc-300 font-semibold transition-all duration-300 hover:border-purple-500 hover:text-purple-300 hover:scale-105"
-            >
-              Get In Touch
-            </Link>
-          </div>
-
-          {/* Tech stack pills */}
-          <div className="flex flex-wrap gap-2">
-            {TECH.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-xs rounded-full border border-zinc-700 text-zinc-400 transition-all duration-200 hover:border-purple-500/60 hover:text-purple-300 cursor-default"
-              >
-                {tech}
-              </span>
-            ))}
+          {/* Profile photo — toned down, no glow */}
+          <div className="hidden lg:block shrink-0 w-40 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+            <div className="border border-[#1f1f1f] overflow-hidden">
+              <Image
+                src="/images/profile.jpg"
+                alt="Pranesh Shrestha"
+                height={220}
+                width={160}
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Right: Profile image */}
-        <div className="hidden lg:flex lg:mt-0 lg:col-span-5 justify-center items-center">
-          <div className="relative group">
-            {/* Animated glow ring */}
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-500 opacity-60 blur-sm group-hover:opacity-90 transition-opacity duration-500 hero-glow-pulse" />
-            <div className="relative rounded-2xl overflow-hidden border border-zinc-700/50">
-              <Image
-                src="/images/profile.jpg"
-                alt="mypic"
-                height={500}
-                width={500}
-                className="object-cover grayscale-[15%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.02]"
-              />
+        {/* Description + CTAs */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mt-12 hero-slide-up-delay">
+          <p className="max-w-md text-base text-[#aaa] leading-relaxed">
+            Building agentic workflows, AI orchestration systems, and
+            MCP tool infrastructure at Meta. Previously React component
+            systems and WebAssembly at Microchip Technology.
+          </p>
+
+          <div className="flex flex-col gap-4 lg:items-end">
+            <div className="w-12 h-px bg-[#f59e0b]" />
+            <div className="flex gap-3">
+              <Link
+                href="/experience"
+                className="px-5 py-2.5 border border-[#f59e0b] text-[#f59e0b] text-sm font-mono tracking-wide transition-colors duration-200 hover:bg-[rgba(245,158,11,0.1)]"
+              >
+                Experience
+              </Link>
+              <Link
+                href="/contact"
+                className="px-5 py-2.5 border border-[#333] text-[#aaa] text-sm font-mono tracking-wide transition-colors duration-200 hover:border-[#555] hover:text-[#ededed]"
+              >
+                Contact
+              </Link>
             </div>
           </div>
         </div>
 
       </div>
 
-      {/* Skills section */}
-      <div className="relative max-w-screen-xl px-4 pb-12 mx-auto">
-        <div className="border-t border-zinc-800 pt-10">
-          <List />
+      {/* Tech stack row */}
+      <div className="max-w-screen-xl px-4 py-6 mx-auto hero-fade-in">
+        <div className="border-t border-[#1f1f1f] pt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <span className="font-mono text-xs text-[#666] tracking-widest uppercase">Stack</span>
+          {TECH.map(t => (
+            <span key={t} className="font-mono text-xs text-[#aaa] hover:text-[#f59e0b] transition-colors duration-150 cursor-default">
+              {t}
+            </span>
+          ))}
         </div>
       </div>
 
+      {/* Skills section */}
+      <div className="max-w-screen-xl px-4 pb-12 mx-auto">
+        <div className="border-t border-[#1f1f1f] pt-10">
+          <List />
+        </div>
+      </div>
     </section>
   )
 }

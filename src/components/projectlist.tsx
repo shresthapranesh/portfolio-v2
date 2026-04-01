@@ -5,11 +5,11 @@ type Role = 'leader' | 'member' | 'engineer';
 const roleStyles: Record<Role, string> = {
   leader:   'bg-green-500/10 text-green-400 border-green-500/30',
   member:   'bg-blue-500/10 text-blue-400 border-blue-500/30',
-  engineer: 'bg-purple-500/10 text-purple-400 border-purple-500/30',
+  engineer: 'bg-[rgba(245,158,11,0.1)] text-[#f59e0b] border-[rgba(245,158,11,0.3)]',
 };
 
 const RoleBadge = ({ role, label }: { role: Role; label: string }) => (
-  <span className={`px-2.5 py-0.5 text-xs rounded-full border font-medium ${roleStyles[role]}`}>
+  <span className={`px-2.5 py-0.5 text-xs border font-mono font-medium ${roleStyles[role]}`}>
     {label}
   </span>
 );
@@ -23,20 +23,20 @@ type ProjectCardProps = {
 };
 
 const ProjectCard = ({ role, title, org, date, items }: ProjectCardProps) => (
-  <div className="w-[90%] sm:w-3/5 p-6 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/5 transition-all duration-300 group">
+  <div className="w-[90%] sm:w-3/5 p-6 border border-[#1f1f1f] bg-[#141414] hover:border-[#2d2d2d] hover:shadow-lg hover:shadow-black/20 transition-all duration-300 group">
     <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
       <div className="flex flex-col gap-1">
         <RoleBadge role={role} label={title} />
-        <h3 className="text-base font-semibold text-white group-hover:text-purple-300 transition-colors duration-200">
+        <h3 className="text-base font-semibold text-[#ededed] group-hover:text-[#f59e0b] transition-colors duration-200">
           {org}
         </h3>
       </div>
-      <span className="text-xs text-zinc-500 whitespace-nowrap mt-1">{date}</span>
+      <span className="text-xs font-mono text-[#444] whitespace-nowrap mt-1">{date}</span>
     </div>
     <ul className="space-y-2">
       {items.map((item, idx) => (
-        <li key={idx} className="text-sm text-zinc-400 flex gap-2">
-          <span className="text-purple-500 mt-0.5 shrink-0">›</span>
+        <li key={idx} className="text-sm text-[#888] flex gap-2">
+          <span className="text-[#f59e0b] mt-0.5 shrink-0">›</span>
           {item}
         </li>
       ))}
@@ -47,7 +47,7 @@ const ProjectCard = ({ role, title, org, date, items }: ProjectCardProps) => (
 const ProjectList = () => {
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold text-white mb-6">Projects</h1>
+      <h1 className="text-2xl font-bold text-[#ededed] mb-6">Projects</h1>
       <div className="flex flex-col gap-4 items-center w-full">
         <ProjectCard
           role="engineer"
