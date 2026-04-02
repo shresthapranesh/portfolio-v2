@@ -1,4 +1,7 @@
+'use client'
 import React from 'react'
+import FlowText, { type Obstacle } from '../../components/FlowText'
+import MetaLogo from '../../components/MetaLogo'
 
 type ExperienceItem = {
   role: string
@@ -6,8 +9,16 @@ type ExperienceItem = {
   location: string
   period: string
   current?: boolean
+  description?: string
   bullets: string[]
   tools: string[]
+}
+
+const LOGO_W = 96  // wide to match 2.32:1 lockup aspect ratio
+const LOGO_H = 44  // natural height + a little breathing room
+
+function getLogoObstacles(containerWidth: number): Obstacle[] {
+  return [{ x: containerWidth - LOGO_W, y: 0, width: LOGO_W, height: LOGO_H, side: 'right' }]
 }
 
 const EXPERIENCE: ExperienceItem[] = [
@@ -17,6 +28,7 @@ const EXPERIENCE: ExperienceItem[] = [
     location: 'Menlo Park, CA',
     period: 'Dec 2024 – Present',
     current: true,
+    description: "Building agentic workflow pipelines that reduce oncall burden by 60%+, designing AI agent skill systems with MCP tool calling, and orchestrating enterprise supply chain and Reality Labs prototype allocations globally — saving thousands of hours of human effort.",
     bullets: [
       'Built agentic workflow pipeline for production support, reducing need for human involvement by more than 60% and greatly reducing oncall stress.',
       'Designed and integrated a dynamic skill system for AI agents with MCP tool calling capabilities.',
@@ -62,6 +74,7 @@ const ExperienceCard = ({ item, index }: { item: ExperienceItem; index: number }
     {/* Card */}
     <div className="pb-10 flex-1">
       <div className="p-6 border border-[#1f1f1f] bg-[#141414] hover:border-[#2d2d2d] transition-all duration-300 hover:shadow-lg hover:shadow-black/30 group">
+
         {/* Header */}
         <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
           <div>
@@ -82,6 +95,25 @@ const ExperienceCard = ({ item, index }: { item: ExperienceItem; index: number }
           <span className="text-xs font-mono text-[#444] whitespace-nowrap mt-1">{item.period}</span>
         </div>
 
+        {/* Description flowing around Meta logo */}
+        {item.description && (
+          <div className="relative mb-5">
+            <div
+              className="absolute top-0 right-0 flex items-start justify-end opacity-75"
+              style={{ width: LOGO_W, height: LOGO_H }}
+            >
+              <MetaLogo width={LOGO_W} height={Math.round(LOGO_W / 2.32)} />
+            </div>
+            <FlowText
+              text={item.description}
+              font="400 14px 'Space Grotesk'"
+              lineHeight={22}
+              getObstacles={getLogoObstacles}
+              lineClassName="text-sm text-[#888]"
+            />
+          </div>
+        )}
+
         {/* Bullets */}
         <ul className="space-y-2 mb-5">
           {item.bullets.map((b, i) => (
@@ -96,6 +128,7 @@ const ExperienceCard = ({ item, index }: { item: ExperienceItem; index: number }
         <div className="flex flex-wrap gap-2">
           {item.tools.map(t => <ToolBadge key={t} name={t} />)}
         </div>
+
       </div>
     </div>
   </div>
@@ -107,7 +140,6 @@ export default function Page() {
       <p className="font-mono text-xs text-[#444] tracking-widest uppercase mb-2">Career</p>
       <h1 className="text-3xl font-bold text-[#ededed] mb-10">Experience</h1>
 
-      {/* Timeline */}
       <div>
         {EXPERIENCE.map((item, index) => (
           <ExperienceCard key={index} item={item} index={index} />

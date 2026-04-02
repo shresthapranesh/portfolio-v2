@@ -2,6 +2,7 @@ import React from 'react'
 import Image from "next/image"
 import Link from "next/link"
 import List from '../components/List'
+import MetaLogo from '../components/MetaLogo'
 
 const TECH = ['React', 'Next.js', 'TypeScript', 'Python', 'GraphQL']
 
@@ -14,7 +15,10 @@ export default function Page() {
         <div className="flex flex-wrap items-center gap-x-6 gap-y-1 mb-12 font-mono text-xs text-[#777] tracking-widest uppercase hero-fade-in">
           <span>Software Engineer</span>
           <span className="text-[#444]">—</span>
-          <span>Meta · Menlo Park, CA</span>
+          <span className="flex items-center gap-2">
+            <MetaLogo width={52} height={22} />
+            <span>Menlo Park, CA</span>
+          </span>
           <span className="text-[#444]">—</span>
           <span>2024 – Present</span>
         </div>
