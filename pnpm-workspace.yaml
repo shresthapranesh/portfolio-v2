@@ -6,3 +6,9 @@ overrides:
   'brace-expansion@<1.1.16': '^1.1.16'
   'brace-expansion@>=3.0.0 <5.0.7': '^5.0.7'
   '@babel/core@<7.29.1': '^7.29.7'
+
+# pnpm 11 fails the install on undeclared dependency build scripts.
+# unrs-resolver's postinstall is only a `napi-postinstall ... check`; the
+# platform binary ships via optionalDependencies, so the script is not needed.
+allowBuilds:
+  unrs-resolver: false
